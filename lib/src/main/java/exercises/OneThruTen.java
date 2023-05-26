@@ -18,9 +18,23 @@ public class OneThruTen {
 		}
 	}
 	
+	/**
+	 * prints ints 1-10 in reverse order
+	 * @param n/a
+	 * @return n/a
+	 */
+	public void printReverse() {
+		// loop thru nums from 10 to 1
+		for (int i = 10; i > 0; i--) {
+			// print i
+			System.out.println(i);
+		}
+	}
+	
 	// create main fn to call printNums fn
 	public static void main(String[] args) {
 		OneThruTen printed = new OneThruTen();
 		printed.printNums();
+		printed.printReverse();
 	}
 }
