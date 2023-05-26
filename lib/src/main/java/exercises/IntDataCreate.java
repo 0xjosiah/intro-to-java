@@ -12,9 +12,13 @@ public class IntDataCreate {
 		return num;
 	}
 	
-	public int printInt(int num) {
+	public void printInt(int num) {
 		System.out.println(num);
 	}
 	
 	// create a method that prints the int to console
+	public static void main(String args[]) {
+		IntDataCreate idc = new IntDataCreate();
+		idc.printInt(5);
+	}
 }
