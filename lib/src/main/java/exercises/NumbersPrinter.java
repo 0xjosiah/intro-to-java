@@ -1,6 +1,20 @@
 package exercises;
 
-public class PrintNums {
+/****************************************************************************
+ * <b>Title:</b> NumbersPrinter.java
+ * <b>Project:</b> lib
+ * <b>Description:</b> exercise from intro to java class 1
+ * <b>Copyright:</b> Copyright (c) 2023
+ * <b>Company:</b> Silicon Mountain Technologies
+ * 
+ * @author Josiah Webb
+ * @version 3.x
+ * @since Jun 9, 2023
+ * <b>updates:</b>
+ *  
+ ****************************************************************************/
+
+public class NumbersPrinter {
 	/**
 	 * method prints all ints 1-10
 	 * @param n/a
@@ -62,9 +76,10 @@ public class PrintNums {
 	
 	// create main fn to call printNums fn
 	public static void main(String[] args) {
-		PrintNums printed = new PrintNums();
+		NumbersPrinter printed = new NumbersPrinter();
 		printed.printToTen();
 		printed.printReverse();
 		printed.printEvens();
 	}
+
 }

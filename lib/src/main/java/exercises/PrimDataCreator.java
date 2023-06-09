@@ -1,6 +1,20 @@
 package exercises;
 
-public class PrimDataStorage {
+/****************************************************************************
+ * <b>Title:</b> PrimDataCreator.java
+ * <b>Project:</b> lib
+ * <b>Description:</b> exercise from intro to java class 1
+ * <b>Copyright:</b> Copyright (c) 2023
+ * <b>Company:</b> Silicon Mountain Technologies
+ * 
+ * @author Josiah Webb
+ * @version 3.x
+ * @since Jun 9, 2023
+ * <b>updates:</b>
+ *  
+ ****************************************************************************/
+
+public class PrimDataCreator {
 	// create private vars for each primitive
 	private int integerValue = 2;
 	private double doubleValue = 5.99028;
@@ -28,7 +42,7 @@ public class PrimDataStorage {
 	 * @return n/a
 	 */
 	public static void main(String[] args) {
-		PrimDataStorage primitives = new PrimDataStorage();
+		PrimDataCreator primitives = new PrimDataCreator();
 		primitives.printDataTypes();
 	}
 }
