@@ -75,11 +75,11 @@ public class NumbersPrinter {
 	}
 	
 	// create main fn to call printNums fn
-	public static void main(String[] args) {
-		NumbersPrinter printed = new NumbersPrinter();
-		printed.printToTen();
-		printed.printReverse();
-		printed.printEvens();
-	}
+//	public static void main(String[] args) {
+//		NumbersPrinter printed = new NumbersPrinter();
+//		printed.printToTen();
+//		printed.printReverse();
+//		printed.printEvens();
+//	}
 
 }
