@@ -1,7 +1,9 @@
-//package exercises;
-//
-//public class PrimDataStorageTest {
-//
-//	PrimDataStorage data = new PrimDataStorage();
-//	data.printDataTypes();
-//}
+package exercises;
+
+public class PrimDataStorageTest {
+	
+	public static void main(String[] args) {
+		PrimDataCreator data = new PrimDataCreator();
+		data.printDataTypes();		
+	}
+}

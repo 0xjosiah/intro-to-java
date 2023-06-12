@@ -41,8 +41,8 @@ public class PrimDataCreator {
 	 * @param n/a
 	 * @return n/a
 	 */
-	public static void main(String[] args) {
-		PrimDataCreator primitives = new PrimDataCreator();
-		primitives.printDataTypes();
-	}
+//	public static void main(String[] args) {
+//		PrimDataCreator primitives = new PrimDataCreator();
+//		primitives.printDataTypes();
+//	}
 }
