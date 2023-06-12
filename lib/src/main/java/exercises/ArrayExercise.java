@@ -16,7 +16,8 @@ package exercises;
 
 public class ArrayExercise {
 	// init empty int array of size 10
-	int[] nums = new int[10];
+	private int[] nums = new int[10];
+	
 	/**
 	 * fills array with random numbers
 	 * @param none
@@ -40,6 +41,7 @@ public class ArrayExercise {
 	public void printArray() {
 		// loop thru array
 		for(int i = 0; i < nums.length; i++) {
+			// print num at index and index
 			System.out.println(nums[i] + " at index " + i);
 		}
 	}
