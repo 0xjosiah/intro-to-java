@@ -15,8 +15,17 @@ package exercises;
  ****************************************************************************/
 
 public class ArrayExercise {
-	// init empty int array of size 10
-	private int[] nums = new int[10];
+	// init empty int array
+	private int[] nums;
+	
+	/**
+	 * constructor
+	 * @param none
+	 * @return none
+	 */
+	public ArrayExercise() {
+		nums = new int[10];
+	}
 	
 	/**
 	 * fills array with random numbers
