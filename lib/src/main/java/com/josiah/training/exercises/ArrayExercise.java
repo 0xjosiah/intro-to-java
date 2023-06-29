@@ -24,7 +24,7 @@ public class ArrayExercise {
 	 * @return none
 	 */
 	public ArrayExercise() {
-		nums = new int[10];
+		this.nums = new int[10];
 	}
 	
 	/**
@@ -50,7 +50,7 @@ public class ArrayExercise {
 	public void printArray() {
 		// loop thru array
 		for(int i = 0; i < nums.length; i++) {
-			// print num at index and index
+			// print value at index and index num
 			System.out.println(nums[i] + " at index " + i);
 		}
 	}
