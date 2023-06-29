@@ -1,4 +1,4 @@
-package exercises;
+package com.josiah.training.exercises;
 
 public class IntDataCreate {
 	
