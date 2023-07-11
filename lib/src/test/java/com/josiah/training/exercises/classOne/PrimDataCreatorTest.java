@@ -1,4 +1,4 @@
-package com.josiah.training.exercises;
+package com.josiah.training.exercises.classOne;
 
 /****************************************************************************
  * <b>Title:</b> PrimDataCreatorTest.java
