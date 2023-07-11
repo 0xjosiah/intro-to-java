@@ -17,7 +17,7 @@ package com.josiah.training.exercises.classOne;
 public class NumbersPrinterTest {
 	/**
 	 * test for PrimDataCreator
-	 * @param n/a
+	 * @param args
 	 * @return n/a
 	 */
 	public static void main(String[] args) {
