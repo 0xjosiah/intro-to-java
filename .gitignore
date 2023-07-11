@@ -10,3 +10,4 @@ build
 # Ignore local settings
 /lib/.settings
 /lib/.classpath
+.settings
