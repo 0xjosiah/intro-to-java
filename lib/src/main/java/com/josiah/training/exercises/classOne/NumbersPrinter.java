@@ -1,4 +1,4 @@
-package com.josiah.training.exercises;
+package com.josiah.training.exercises.classOne;
 
 /****************************************************************************
  * <b>Title:</b> NumbersPrinter.java
@@ -15,6 +15,17 @@ package com.josiah.training.exercises;
  ****************************************************************************/
 
 public class NumbersPrinter {
+	 /**
+	  * Constructor
+	  * @param args
+	  */
+	public static void main(String[] args) {
+		NumbersPrinter printed = new NumbersPrinter();
+		printed.printToTen();
+		printed.printReverse();
+		printed.printEvens();
+	}
+	
 	/**
 	 * method prints all ints 1-10
 	 * @param n/a
@@ -74,12 +85,5 @@ public class NumbersPrinter {
 		}
 	}
 	
-	// create main fn to call printNums fn
-//	public static void main(String[] args) {
-//		NumbersPrinter printed = new NumbersPrinter();
-//		printed.printToTen();
-//		printed.printReverse();
-//		printed.printEvens();
-//	}
 
 }
