@@ -1,4 +1,4 @@
-package com.josiah.training.exercises;
+package com.josiah.training.exercises.classTwo;
 
 /****************************************************************************
  * <b>Title:</b> ArrayExerciseTest.java
