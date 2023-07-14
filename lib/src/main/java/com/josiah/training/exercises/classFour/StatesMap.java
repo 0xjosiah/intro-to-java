@@ -1,5 +1,8 @@
 package com.josiah.training.exercises.classFour;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /****************************************************************************
  * <b>Title:</b> StatesMap.java
  * <b>Project:</b> lib
@@ -15,5 +18,68 @@ package com.josiah.training.exercises.classFour;
  ****************************************************************************/
 
 public class StatesMap {
+	// init private map to store states
+	private Map<String, String> mapOfStates = new HashMap<String, String>();
 	
+	public StatesMap() {
+		mapOfStates.put("AL", "Alabama");
+		mapOfStates.put("AK", "Alaska");
+		mapOfStates.put("AZ", "Arizona");
+		mapOfStates.put("AR", "Arkansas");
+		mapOfStates.put("CA", "California");
+		mapOfStates.put("CO", "Colorado");
+		mapOfStates.put("CT", "Connecticut");
+		mapOfStates.put("DE", "Delaware");
+		mapOfStates.put("FL", "Florida");
+		mapOfStates.put("GA", "Georgia");
+		mapOfStates.put("HI", "Hawaii");
+		mapOfStates.put("ID", "Idaho");
+		mapOfStates.put("IL", "Illinois");
+		mapOfStates.put("IN", "Indiana");
+		mapOfStates.put("IA", "Iowa");
+//		
+//		Kansas
+//		Kentucky
+//		Louisiana
+//		Maine
+//		Maryland
+//		Massachusetts
+//		Michigan
+//		Minnesota
+//		Mississippi
+//		Missouri
+//		Montana
+//		Nebraska
+//		Nevada
+//		New Hampshire
+//		New Jersey
+//		New Mexico
+//		New York
+//		North Carolina
+//		North Dakota
+//		Ohio
+//		Oklahoma
+//		Oregon
+//		Pennsylvania
+//		Rhode Island
+//		South Carolina
+//		South Dakota
+//		Tennessee
+//		Texas
+//		Utah
+//		Vermont
+//		Virginia
+//		Washington
+//		West Virginia
+//		Wisconsin
+//		Wyoming
+	}
+	
+	/**
+	 * main method to init new instance
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		StatesMap map = new StatesMap();
+	}
 }
