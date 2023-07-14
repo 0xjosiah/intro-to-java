@@ -30,8 +30,6 @@ public class ArrayExercise {
 	
 	/**
 	 * constructor
-	 * @param none
-	 * @return none
 	 */
 	public ArrayExercise() {
 		this.nums = new int[10];
@@ -39,8 +37,6 @@ public class ArrayExercise {
 	
 	/**
 	 * fills array with random numbers
-	 * @param none
-	 * @return none
 	 */
 	public void fillArray() {
 		// loop thru array length
@@ -54,8 +50,6 @@ public class ArrayExercise {
 	
 	/**
 	 * prints array
-	 * @param none
-	 * @return none
 	 */
 	public void printArray() {
 		// loop thru array
