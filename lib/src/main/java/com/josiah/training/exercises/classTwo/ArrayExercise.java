@@ -19,6 +19,16 @@ public class ArrayExercise {
 	private int[] nums;
 	
 	/**
+	 * main
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		ArrayExercise arr = new ArrayExercise();
+		arr.fillArray();
+		arr.printArray();
+	}
+	
+	/**
 	 * constructor
 	 * @param none
 	 * @return none

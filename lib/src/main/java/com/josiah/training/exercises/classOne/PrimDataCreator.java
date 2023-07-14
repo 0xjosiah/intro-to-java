@@ -23,6 +23,15 @@ public class PrimDataCreator {
 	private boolean boolValue = true;
 	
 	/**
+	 * inits class and stores primitive data types
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		PrimDataCreator primitives = new PrimDataCreator();
+		primitives.printDataTypes();
+	}
+	
+	/**
 	 * Prints all data types to console
 	 * @param n/a
 	 * @return n/a
@@ -36,13 +45,4 @@ public class PrimDataCreator {
 		System.out.println("boolean value " + boolValue);
 	}
 	
-	/**
-	 * inits class and stores primitive data types
-	 * @param n/a
-	 * @return n/a
-	 */
-//	public static void main(String[] args) {
-//		PrimDataCreator primitives = new PrimDataCreator();
-//		primitives.printDataTypes();
-//	}
 }
