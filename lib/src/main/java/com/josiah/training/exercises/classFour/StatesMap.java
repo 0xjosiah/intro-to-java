@@ -2,6 +2,7 @@ package com.josiah.training.exercises.classFour;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /****************************************************************************
  * <b>Title:</b> StatesMap.java
@@ -21,7 +22,27 @@ public class StatesMap {
 	// init private map to store states
 	private Map<String, String> mapOfStates = new HashMap<String, String>();
 	
+	/**
+	 * constructor calls loadMap to populate map
+	 */
 	public StatesMap() {
+		loadMap();
+	}
+	
+	/**
+	 * sorts states map by key
+	 * @param statesMap
+	 * @return sortedStatesMap
+	 */
+	public TreeMap<String, String> sortMap(HashMap<String, String> statesMap) {
+		TreeMap<String, String> sortedStatesMap = new TreeMap<String, String>(statesMap);
+		return sortedStatesMap;
+	}
+	
+	/**
+	 * method loads map of states
+	 */
+	protected void loadMap() {
 		mapOfStates.put("AL", "Alabama");
 		mapOfStates.put("AK", "Alaska");
 		mapOfStates.put("AZ", "Arizona");
@@ -47,32 +68,31 @@ public class StatesMap {
 		mapOfStates.put("MN", "Minnesota");
 		mapOfStates.put("MN", "Mississippi");
 		mapOfStates.put("MO", "Missouri");
-//		
-//		Montana
-//		Nebraska
-//		Nevada
-//		New Hampshire
-//		New Jersey
-//		New Mexico
-//		New York
-//		North Carolina
-//		North Dakota
-//		Ohio
-//		Oklahoma
-//		Oregon
-//		Pennsylvania
-//		Rhode Island
-//		South Carolina
-//		South Dakota
-//		Tennessee
-//		Texas
-//		Utah
-//		Vermont
-//		Virginia
-//		Washington
-//		West Virginia
-//		Wisconsin
-//		Wyoming
+		mapOfStates.put("MT", "Montana");
+		mapOfStates.put("NE", "Nebraska");
+		mapOfStates.put("NV", "Nevada");
+		mapOfStates.put("NH", "New Hampshire");
+		mapOfStates.put("NJ", "New Jersey");
+		mapOfStates.put("NM", "New Mexico");
+		mapOfStates.put("NY", "New York");
+		mapOfStates.put("NC", "North Carolina");
+		mapOfStates.put("ND", "North Dakota");
+		mapOfStates.put("OH", "Ohio");
+		mapOfStates.put("OK", "Oklahoma");
+		mapOfStates.put("OR", "Oregon");
+		mapOfStates.put("PA", "Pennsylvania");
+		mapOfStates.put("RI", "Rhode Island");
+		mapOfStates.put("SC", "South Carolina");
+		mapOfStates.put("SD", "South Dakota");
+		mapOfStates.put("TN", "Tennessee");
+		mapOfStates.put("TX", "Texas");
+		mapOfStates.put("UT", "Utah");
+		mapOfStates.put("VT", "Vermont");
+		mapOfStates.put("VA", "Virginia");
+		mapOfStates.put("WA", "Washington");
+		mapOfStates.put("WV", "West Virginia");
+		mapOfStates.put("WI", "Wisconsin");
+		mapOfStates.put("WY", "Wyoming");
 	}
 	
 	/**
