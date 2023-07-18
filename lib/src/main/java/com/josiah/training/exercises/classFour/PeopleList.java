@@ -20,6 +20,22 @@ public class PeopleList {
 	// init list to hold people
 	ArrayList<Object> people = new ArrayList<Object>();
 	
+	/**
+	 * constructor calls load list
+	 */
+	public PeopleList() {
+//		loadList();
+	}
+	
+//	protected void loadList() {
+//		people.add({
+//			"id": 1,
+//			"firstName": "Joey",
+//		})
+//	}
+	
+	
+	
 	
 
 }
