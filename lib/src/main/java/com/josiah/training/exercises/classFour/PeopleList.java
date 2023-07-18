@@ -2,6 +2,7 @@ package com.josiah.training.exercises.classFour;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 /****************************************************************************
  * <b>Title:</b> PeopleList.java
@@ -38,6 +39,10 @@ public class PeopleList {
 		people.add(new Person(4, "Leia", "Organa"));
 	}
 	
+	public void shuffleList() {
+		Collections.shuffle(people);
+	}
+	
 	/**
 	 * printer for list
 	 */
@@ -47,6 +52,8 @@ public class PeopleList {
 	
 	public static void main(String[] args) {
 		PeopleList listOfPeople = new PeopleList();
+		listOfPeople.printList();
+		listOfPeople.shuffleList();
 		listOfPeople.printList();
 	}
 
