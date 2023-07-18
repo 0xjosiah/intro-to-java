@@ -54,4 +54,9 @@ public class Person {
 	public String getLastName() {
 		return this.lastName;
 	}
+	
+	@Override
+	public String toString() {
+		return "id: " + this.id + ", first: " + this.firstName + ", last: " + this.lastName;
+	}
 }

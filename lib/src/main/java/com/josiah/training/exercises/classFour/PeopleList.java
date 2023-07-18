@@ -1,6 +1,7 @@
 package com.josiah.training.exercises.classFour;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /****************************************************************************
  * <b>Title:</b> PeopleList.java
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 public class PeopleList {
 	// init list to hold people
-	ArrayList<Object> people = new ArrayList<Object>();
+	ArrayList<Person> people = new ArrayList<Person>();
 	
 	/**
 	 * constructor calls load list
@@ -37,8 +38,16 @@ public class PeopleList {
 		people.add(new Person(4, "Leia", "Organa"));
 	}
 	
+	/**
+	 * printer for list
+	 */
+	public void printList() {
+		people.forEach(person -> System.out.println(person.toString()));
+	}
 	
-	
-	
+	public static void main(String[] args) {
+		PeopleList listOfPeople = new PeopleList();
+		listOfPeople.printList();
+	}
 
 }
