@@ -24,15 +24,18 @@ public class PeopleList {
 	 * constructor calls load list
 	 */
 	public PeopleList() {
-//		loadList();
+		loadList();
 	}
 	
-//	protected void loadList() {
-//		people.add({
-//			"id": 1,
-//			"firstName": "Joey",
-//		})
-//	}
+	/**
+	 * fills people list
+	 */
+	protected void loadList() {
+		people.add(new Person(1, "Luke", "Skywalker"));
+		people.add(new Person(2, "Darth", "Vader"));
+		people.add(new Person(3, "Han", "Solo"));
+		people.add(new Person(4, "Leia", "Organa"));
+	}
 	
 	
 	
