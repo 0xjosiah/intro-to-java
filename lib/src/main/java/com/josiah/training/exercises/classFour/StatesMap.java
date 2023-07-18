@@ -43,6 +43,10 @@ public class StatesMap {
 		return (TreeMap<String, String>) (this.mapOfStates = sortedStatesMap);
 	}
 	
+	/**
+	 * method to shuffle map of states
+	 * @return mapOfStates
+	 */
 	public HashMap<String, String> shuffleMap() {
 		// init temp to store sorted map
 		HashMap<String, String> shuffled = new HashMap<String, String>();
