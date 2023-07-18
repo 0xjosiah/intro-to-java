@@ -37,17 +37,17 @@ public class StatesMap {
 		mapOfStates.put("IL", "Illinois");
 		mapOfStates.put("IN", "Indiana");
 		mapOfStates.put("IA", "Iowa");
+		mapOfStates.put("KS", "Kansas");
+		mapOfStates.put("KY", "Kentucky");
+		mapOfStates.put("LA", "Louisiana");
+		mapOfStates.put("ME", "Maine");
+		mapOfStates.put("MD", "Maryland");
+		mapOfStates.put("MA", "Massachusetts");
+		mapOfStates.put("MI", "Michigan");
+		mapOfStates.put("MN", "Minnesota");
+		mapOfStates.put("MN", "Mississippi");
+		mapOfStates.put("MO", "Missouri");
 //		
-//		Kansas
-//		Kentucky
-//		Louisiana
-//		Maine
-//		Maryland
-//		Massachusetts
-//		Michigan
-//		Minnesota
-//		Mississippi
-//		Missouri
 //		Montana
 //		Nebraska
 //		Nevada
