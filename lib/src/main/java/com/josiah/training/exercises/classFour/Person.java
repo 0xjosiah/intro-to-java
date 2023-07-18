@@ -56,6 +56,9 @@ public class Person {
 	}
 	
 	@Override
+	/**
+	 * allows for printing from person list
+	 */
 	public String toString() {
 		return "id: " + this.id + ", first: " + this.firstName + ", last: " + this.lastName;
 	}
