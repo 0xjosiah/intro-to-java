@@ -1,5 +1,7 @@
 package com.josiah.training.exercises.classFour;
 
+import java.util.ArrayList;
+
 /****************************************************************************
  * <b>Title:</b> PeopleList.java
  * <b>Project:</b> lib
@@ -15,5 +17,9 @@ package com.josiah.training.exercises.classFour;
  ****************************************************************************/
 
 public class PeopleList {
+	// init list to hold people
+	ArrayList<Object> people = new ArrayList<Object>();
+	
+	
 
 }
