@@ -1,5 +1,8 @@
 package com.josiah.training.exercises.classFour;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /****************************************************************************
  * <b>Title:</b> StringArrayToListConverter.java
  * <b>Project:</b> lib
@@ -15,5 +18,22 @@ package com.josiah.training.exercises.classFour;
  ****************************************************************************/
 
 public class StringArrayToListConverter {
-
+	// init list to store converted array
+	ArrayList<String> stringList = new ArrayList<String>();
+	
+	/**
+	 * constructor 
+	 * @param strings
+	 */
+	public StringArrayToListConverter(String[] strings) {
+		this.stringList = (ArrayList<String>) Arrays.asList(strings);
+	}
+	
+	/**
+	 * get the converted list
+	 * @return stringList
+	 */
+	public ArrayList<String> getList() {
+		return this.stringList;
+	}
 }
