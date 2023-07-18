@@ -2,6 +2,7 @@ package com.josiah.training.exercises.classFour;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /****************************************************************************
  * <b>Title:</b> StringArrayToListConverter.java
@@ -18,22 +19,18 @@ import java.util.Arrays;
  ****************************************************************************/
 
 public class StringArrayToListConverter {
-	// init list to store converted array
-	ArrayList<String> stringList = new ArrayList<String>();
-	
 	/**
-	 * constructor 
-	 * @param strings
+	 * main to convert string array to list
+	 * @param args
 	 */
-	public StringArrayToListConverter(String[] strings) {
-		this.stringList = (ArrayList<String>) Arrays.asList(strings);
-	}
+	public static void main(String[] args) {
+		// init string arr
+	    String[] arr = {"one", "two"};
 	
-	/**
-	 * get the converted list
-	 * @return stringList
-	 */
-	public ArrayList<String> getList() {
-		return this.stringList;
+	    // create list var to store list from array
+		List<String> list = new ArrayList<>(Arrays.asList(arr));
+	
+		System.out.println("Array elements: " + Arrays.toString(arr));
+		System.out.println("List elements: " + list);
 	}
 }
