@@ -3,7 +3,6 @@ package com.josiah.training.exercises.classFour;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -51,7 +50,7 @@ public class StatesMap {
 		// init temp to store sorted map
 		HashMap<String, String> shuffled = new HashMap<String, String>();
 		// create list to get keys from existing map
-		List keys = new ArrayList(mapOfStates.keySet());
+		ArrayList<String> keys = new ArrayList<String>(mapOfStates.keySet());
 		// shuffle keys from map
 		Collections.shuffle(keys);
 		// loop thru keys
