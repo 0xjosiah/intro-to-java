@@ -39,6 +39,9 @@ public class PeopleList {
 		people.add(new Person(4, "Leia", "Organa"));
 	}
 	
+	/**
+	 * shuffles the list of people
+	 */
 	public void shuffleList() {
 		Collections.shuffle(people);
 	}
@@ -50,6 +53,10 @@ public class PeopleList {
 		people.forEach(person -> System.out.println(person.toString()));
 	}
 	
+	/**
+	 * main to init new people list
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		PeopleList listOfPeople = new PeopleList();
 		listOfPeople.printList();
