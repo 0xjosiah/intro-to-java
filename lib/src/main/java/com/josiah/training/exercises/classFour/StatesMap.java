@@ -31,12 +31,18 @@ public class StatesMap {
 	
 	/**
 	 * sorts states map by key
-	 * @param statesMap
-	 * @return sortedStatesMap
+	 * @return mapOfStates
 	 */
-	public TreeMap<String, String> sortMap(HashMap<String, String> statesMap) {
-		TreeMap<String, String> sortedStatesMap = new TreeMap<String, String>(statesMap);
-		return sortedStatesMap;
+	public TreeMap<String, String> sortMap() {
+		TreeMap<String, String> sortedStatesMap = new TreeMap<String, String>(this.mapOfStates);
+		return (TreeMap<String, String>) (this.mapOfStates = sortedStatesMap);
+	}
+	
+	/**
+	 * helper method to print existing state of map
+	 */
+	public void printMap() {
+		this.mapOfStates.forEach((key, value) -> System.out.println(key + ":" + value));
 	}
 	
 	/**
@@ -101,5 +107,7 @@ public class StatesMap {
 	 */
 	public static void main(String[] args) {
 		StatesMap map = new StatesMap();
+		map.sortMap();
+		map.printMap();
 	}
 }
