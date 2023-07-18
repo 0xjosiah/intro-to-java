@@ -1,6 +1,9 @@
 package com.josiah.training.exercises.classFour;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -34,14 +37,33 @@ public class StatesMap {
 	 * @return mapOfStates
 	 */
 	public TreeMap<String, String> sortMap() {
+		// init new tree map for sorting by key, pass in current mapOfStates
 		TreeMap<String, String> sortedStatesMap = new TreeMap<String, String>(this.mapOfStates);
+		// return cast to tree map
 		return (TreeMap<String, String>) (this.mapOfStates = sortedStatesMap);
+	}
+	
+	public HashMap<String, String> shuffleMap() {
+		// init temp to store sorted map
+		HashMap<String, String> shuffled = new HashMap<String, String>();
+		// create list to get keys from existing map
+		List keys = new ArrayList(mapOfStates.keySet());
+		// shuffle keys from map
+		Collections.shuffle(keys);
+		// loop thru keys
+		for(Object stateKey : keys) {
+			// put key-value pairs into temp map
+			shuffled.put((String)stateKey, mapOfStates.get(stateKey));
+		}
+		// cast new map into existing mapOfStates, cast to ensure correct type
+		return (HashMap<String, String>) (mapOfStates = shuffled);
 	}
 	
 	/**
 	 * helper method to print existing state of map
 	 */
 	public void printMap() {
+		// prints for each key, value pair
 		this.mapOfStates.forEach((key, value) -> System.out.println(key + ":" + value));
 	}
 	
@@ -108,6 +130,8 @@ public class StatesMap {
 	public static void main(String[] args) {
 		StatesMap map = new StatesMap();
 		map.sortMap();
+		map.printMap();
+		map.shuffleMap();
 		map.printMap();
 	}
 }
