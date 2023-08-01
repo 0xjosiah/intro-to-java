@@ -34,16 +34,18 @@ public class FileCopier {
 	 * @return string of read file content
 	 * @throws IOException
 	 */
-	public String FileReader() throws IOException {
+	public String fileReader(String input) throws IOException {
+		// get full path with input file name
+		String inputPath = this.rootFolder + File.separator + input;
 		// init new file
-		File inputFile = new File(rootFolder);
+		File inputFile = new File(inputPath);
 		// init string builder for content
 		StringBuilder content = new StringBuilder();
 		// try block
 		try {
 			// init reader
 			FileReader reader = new FileReader(inputFile);
-			// init counter for reader
+			// init char holder for reader
 			int c;
 			// loop thru and extract content
 			while((c = reader.read()) != -1) {
@@ -56,5 +58,24 @@ public class FileCopier {
 		}
 
 		return content.toString();
+	}
+	
+	public void fileWriter(String input, String output) {
+		String inputPath = this.rootFolder + File.separator + input;
+		String outputPath = this.rootFolder + File.separator + output;
+		// init output file
+		File inputFile = new File(inputPath);
+		File outputFile = new File(outputPath);
+		
+		try {
+			FileReader reader = new FileReader(inputFile);
+			FileWriter writer = new FileWriter(outputFile);
+			int c;
+			while ((c = reader.read()) != -1) {
+				writer.write(c);
+			}
+		} catch(Error e) {
+			System.out.println(e);
+		}
 	}
 }
