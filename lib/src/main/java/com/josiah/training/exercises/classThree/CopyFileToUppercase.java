@@ -1,5 +1,7 @@
 package com.josiah.training.exercises.classThree;
 
+import java.io.IOException;
+
 /****************************************************************************
  * <b>Title:</b> CopyFileToUppercase.java
  * <b>Project:</b> lib
@@ -14,6 +16,16 @@ package com.josiah.training.exercises.classThree;
  *  
  ****************************************************************************/
 
-public class CopyFileToUppercase {
 
+public class CopyFileToUppercase {
+	
+	public static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/classThree/";
+	
+	
+	public static void main(String[] args) throws IOException {
+		FileReaderWriter rw = new FileReaderWriter(PATH);
+		String content = rw.fileReader("inputTest.txt");
+		String capsContent = content.toUpperCase();
+		rw.fileWriter(capsContent, "outputTest.txt");
+	}
 }
