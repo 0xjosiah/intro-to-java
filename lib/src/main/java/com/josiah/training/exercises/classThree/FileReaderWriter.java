@@ -2,7 +2,7 @@ package com.josiah.training.exercises.classThree;
 import java.io.*;
 
 /****************************************************************************
- * <b>Title:</b> FileCopier.java
+ * <b>Title:</b> FileReaderWriter.java
  * <b>Project:</b> lib
  * <b>Description:</b> takes in a root folder, reads in a file and writes to a new file
  * <b>Copyright:</b> Copyright (c) 2023
@@ -15,7 +15,7 @@ import java.io.*;
  *  
  ****************************************************************************/
 
-public class FileCopier {
+public class FileReaderWriter {
 	// init private var for file path
 	private String rootFolder;
 	// path for test file
@@ -25,12 +25,13 @@ public class FileCopier {
 	 * Constructor - takes in root folder and assigns to private var
 	 * @param rootFolder
 	 */
-	public FileCopier(String rootFolder) {
+	public FileReaderWriter(String rootFolder) {
 		this.rootFolder = rootFolder;
 	}
 	
 	/**
 	 * file reader method
+	 * TODO have this return byte array
 	 * @return string of read file content
 	 * @throws IOException
 	 */
@@ -60,21 +61,21 @@ public class FileCopier {
 		return content.toString();
 	}
 	
-	public void fileWriter(String input, String output) {
-		String inputPath = this.rootFolder + File.separator + input;
-		String outputPath = this.rootFolder + File.separator + output;
+	/**
+	 * TODO change inputs to path, name, byte array
+	 * @param input
+	 * @param output
+	 */
+	public void fileWriter(String content, String outputFile) {
+		String outputPath = this.rootFolder + File.separator + outputFile;
 		// init output file
-		File inputFile = new File(inputPath);
-		File outputFile = new File(outputPath);
+		File output = new File(outputPath);
 		
 		try {
-			FileReader reader = new FileReader(inputFile);
-			FileWriter writer = new FileWriter(outputFile);
-			int c;
-			while ((c = reader.read()) != -1) {
-				writer.write(c);
-			}
-		} catch(Error e) {
+			FileWriter writer = new FileWriter(output);
+			writer.write(content);
+			writer.close();
+		} catch(IOException e) {
 			System.out.println(e);
 		}
 	}
