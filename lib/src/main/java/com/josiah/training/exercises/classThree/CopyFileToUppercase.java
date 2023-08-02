@@ -18,10 +18,14 @@ import java.io.IOException;
 
 
 public class CopyFileToUppercase {
-	
+	// static path to be used for testing
 	public static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/classThree/";
 	
-	
+	/**
+	 * invokes reader/writer and converts contents of source file to capitalized version in dest file
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		FileReaderWriter rw = new FileReaderWriter(PATH);
 		String content = rw.fileReader("inputTest.txt");
