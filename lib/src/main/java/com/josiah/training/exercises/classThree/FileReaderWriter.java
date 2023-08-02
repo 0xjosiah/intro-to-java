@@ -31,7 +31,6 @@ public class FileReaderWriter {
 	
 	/**
 	 * file reader method
-	 * TODO have this return byte array
 	 * @return string of read file content
 	 * @throws IOException
 	 */
@@ -62,9 +61,9 @@ public class FileReaderWriter {
 	}
 	
 	/**
-	 * TODO change inputs to path, name, byte array
-	 * @param input
-	 * @param output
+	 * takes in content, a destination file, and copies content to file
+	 * @param content
+	 * @param outputFile
 	 */
 	public void fileWriter(String content, String outputFile) {
 		String outputPath = this.rootFolder + File.separator + outputFile;
