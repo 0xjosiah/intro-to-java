@@ -37,7 +37,7 @@ public class WebPageFetcher {
 		try (Socket echoSocket = new Socket(host, portNumber)) {
 			DataOutputStream out = new DataOutputStream(echoSocket.getOutputStream());
 			BufferedReader in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
-			out.writeBytes("GET / \n");
+			out.writeBytes("GET / HTTP/1.1\r\nHost: " + host + "\r\n\r\n");
 			String inData = null;
 			while((inData = in.readLine()) != null ) {
 				html.append(inData);
@@ -60,7 +60,7 @@ public class WebPageFetcher {
 	
 	public static void main(String[] args) throws IOException {
 		WebPageFetcher fetcher = new WebPageFetcher();
-		String content = fetcher.getWebPage("127.0.1.1", 443);
+		String content = fetcher.getWebPage("127.0.0.1", 443);
 		fetcher.printFetchedPage(content);
 	}
 
