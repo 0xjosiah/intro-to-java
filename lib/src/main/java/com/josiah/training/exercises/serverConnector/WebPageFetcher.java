@@ -21,6 +21,20 @@ import java.net.Socket;
  ****************************************************************************/
 
 public class WebPageFetcher {
+	// initialized private variables for constructor
+	private String host = null;
+	private int portNumber = 0;
+	
+	
+	/**
+	 * constructor
+	 * @param host
+	 * @param portNumber
+	 */
+	public WebPageFetcher(String host, int portNumber) {
+		this.host = host;
+		this.portNumber = portNumber;
+	}
 	
 	/**
 	 * reaches out to a server socket, connects, and extracts html from page
@@ -29,12 +43,12 @@ public class WebPageFetcher {
 	 * @return
 	 * @throws IOException
 	 */
-	public String getWebPage(String host, int portNumber) throws IOException{
+	public String getWebPage() throws IOException{
 		// init string builder for ingested html
 		StringBuilder html = new StringBuilder();
 		
 		// try socket connection
-		try (Socket echoSocket = new Socket(host, portNumber)) {
+		try (Socket echoSocket = new Socket(this.host, this.portNumber)) {
 			DataOutputStream out = new DataOutputStream(echoSocket.getOutputStream());
 			BufferedReader in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
 			out.writeBytes("GET / HTTP/1.1\r\nHost: " + host + "\r\n\r\n");
@@ -54,14 +68,14 @@ public class WebPageFetcher {
 	 * prints fetched content
 	 * @param content
 	 */
-	public void printFetchedPage(String content) {
+	public void printPageToConsole(String content) {
 		System.out.println(content);
 	}
 	
 	public static void main(String[] args) throws IOException {
-		WebPageFetcher fetcher = new WebPageFetcher();
-		String content = fetcher.getWebPage("127.0.0.1", 443);
-		fetcher.printFetchedPage(content);
+		WebPageFetcher fetcher = new WebPageFetcher("127.0.0.1", 443);
+		String content = fetcher.getWebPage();
+		fetcher.printPageToConsole(content);
 	}
 
 }
