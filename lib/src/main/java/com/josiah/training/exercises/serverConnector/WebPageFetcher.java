@@ -57,9 +57,9 @@ public class WebPageFetcher {
 				html.append(inData);
 			}
 		} 
-//			catch (IOException e) {
-//			System.out.println("unable to connect to server", e);
-//		}
+		catch (IOException e) {
+		    System.out.println("Unable to connect to server: " + e.getMessage());
+		}
 		return html.toString();
 	}
 	
