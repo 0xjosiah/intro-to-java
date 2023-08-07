@@ -2,6 +2,8 @@ package com.josiah.training.exercises.serverConnector;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
@@ -24,6 +26,8 @@ public class WebPageFetcher {
 	// initialized private variables for constructor
 	private String host = null;
 	private int portNumber = 0;
+	// static path to be used for testing
+	private static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/serverConnector/";
 	
 	
 	/**
@@ -59,9 +63,11 @@ public class WebPageFetcher {
 				html.append(inData);
 			}
 		} 
+		
 		catch (IOException e) {
 		    System.out.println("Unable to connect to server: " + e.getMessage());
 		}
+		
 		return html.toString();
 	}
 	
@@ -74,10 +80,35 @@ public class WebPageFetcher {
 		System.out.println(content);
 	}
 	
+	/**
+	 * takes in content, a destination file, and copies content to file
+	 * @param content
+	 * @param outputFile
+	 */
+	public void fileWriter(String content, String rootFolder, String outputFile) {
+		String outputPath = rootFolder + File.separator + outputFile;
+		// init output file
+		File output = new File(outputPath);
+		
+		try {
+			FileWriter writer = new FileWriter(output);
+			writer.write(content);
+			writer.close();
+		} catch(IOException e) {
+			System.out.println(e);
+		}
+	}
+	
+	/**
+	 * calls constructor and tests with localhost default page
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		WebPageFetcher fetcher = new WebPageFetcher("127.0.0.1", 443);
 		String content = fetcher.getWebPage();
 		fetcher.printPageToConsole(content);
+		fetcher.fileWriter(content, PATH, "output.txt");
 	}
 
 }
