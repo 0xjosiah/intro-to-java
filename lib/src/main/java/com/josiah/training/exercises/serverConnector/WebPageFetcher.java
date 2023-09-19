@@ -57,7 +57,7 @@ public class WebPageFetcher {
 				DataOutputStream out = new DataOutputStream(echoSocket.getOutputStream());
 				BufferedReader in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()))
 			) {
-			out.writeBytes("GET / HTTP/1.1\r\nHost: " + host + "\r\n\r\n");
+			out.writeBytes("GET / HTTPS/1.1\r\nHost: " + host + "\r\n\r\n");
 			String inData = null;
 			while((inData = in.readLine()) != null ) {
 				html.append(inData);
@@ -105,7 +105,7 @@ public class WebPageFetcher {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		WebPageFetcher fetcher = new WebPageFetcher("127.0.0.1", 443);
+		WebPageFetcher fetcher = new WebPageFetcher("smt-stage.qa.siliconmtn.com", 443);
 		String content = fetcher.getWebPage();
 		fetcher.printPageToConsole(content);
 		fetcher.fileWriter(content, PATH, "output.txt");
