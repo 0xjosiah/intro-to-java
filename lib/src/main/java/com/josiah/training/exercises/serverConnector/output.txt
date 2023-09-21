@@ -1,1 +1,1 @@
-HTTP/1.1 400 Bad RequestServer: awselb/2.0Date: Thu, 14 Sep 2023 21:38:13 GMTContent-Type: text/htmlContent-Length: 122Connection: close<html><head><title>400 Bad Request</title></head><body><center><h1>400 Bad Request</h1></center></body></html>
+HTTP/1.1 400 Bad RequestServer: awselb/2.0Date: Wed, 20 Sep 2023 20:49:47 GMTContent-Type: text/htmlContent-Length: 122Connection: close<html><head><title>400 Bad Request</title></head><body><center><h1>400 Bad Request</h1></center></body></html>

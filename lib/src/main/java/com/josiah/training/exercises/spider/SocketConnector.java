@@ -1,5 +1,6 @@
 package com.josiah.training.exercises.spider;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -7,6 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+
+import javax.net.SocketFactory;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 
 /****************************************************************************
  * <b>Title:</b> SocketConnector.java
@@ -27,7 +32,8 @@ public class SocketConnector {
 	private String host = null;
 	private int portNumber = 0;
 	// static path to be used for testing
-	private static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/serverConnector/";
+	private static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/spider/";
+	private static final String blankLine = "\r\n";
 	
 	
 	/**
@@ -52,12 +58,22 @@ public class SocketConnector {
 		StringBuilder html = new StringBuilder();
 		
 		// try socket connection
+		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 		try (
-				Socket echoSocket = new Socket(this.host, this.portNumber);
-				DataOutputStream out = new DataOutputStream(echoSocket.getOutputStream());
-				BufferedReader in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()))
+//				Socket echoSocket = new Socket(this.host, this.portNumber);
+		        SSLSocket socket = (SSLSocket) factory.createSocket(host, portNumber);
+				BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
+				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			) {
-			out.writeBytes("GET / HTTPS/1.1\r\nHost: " + host + "\r\n\r\n");
+			StringBuilder request = new StringBuilder();
+			request.append("GET / HTTP/1.1\r\nHost: ");
+			request.append(host);
+			request.append(blankLine);
+			request.append("Connection: close\r\n\r\n");
+			request.append(blankLine);
+			System.out.println(request.toString());
+			out.write(request.toString().getBytes());
+			out.flush();
 			String inData = null;
 			while((inData = in.readLine()) != null ) {
 				html.append(inData);

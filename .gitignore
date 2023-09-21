@@ -15,3 +15,4 @@ build
 
 #Ignore site details for spider
 /lib/src/main/java/com/josiah/training/exercises/spider/siteDetails.md
+/bin/
