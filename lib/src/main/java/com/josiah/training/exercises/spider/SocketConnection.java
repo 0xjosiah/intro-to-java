@@ -76,6 +76,10 @@ public class SocketConnection {
 		return this.stringData;
 	}
 	
+	public void setStringData(String content) {
+		this.stringData = content;
+	}
+	
 	
 	/**
 	 * constructor
@@ -143,7 +147,7 @@ public class SocketConnection {
 		    System.out.println("Unable to connect to server: " + e.getMessage());
 		}
 		
-		this.stringData = html.toString();
+		setStringData(html.toString());
 	}
 	
 	/**
