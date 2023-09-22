@@ -41,8 +41,10 @@ public class WebCrawler {
 		} else {
 			fetcher = new SocketConnection(host, portNum);			
 		}
+		
+		// allows for file printing
 		String content = fetcher.getStringData();
-		DataParser parser = new DataParser(content);
+		
 		if(isPrintToFile == "true") fetcher.writeAllPagesToFiles(fileType);
 	}
 }
