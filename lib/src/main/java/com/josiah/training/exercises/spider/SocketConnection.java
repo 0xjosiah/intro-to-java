@@ -62,7 +62,7 @@ public class SocketConnection {
 	 * constructor 
 	 * @param host
 	 * @param portNumber
-	 * @param route
+	 * @param route (excluding any "/")
 	 * @throws IOException 
 	 */
 	public SocketConnection(String host, int portNumber, String route) throws IOException {
@@ -92,7 +92,9 @@ public class SocketConnection {
 				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			) {
 			StringBuilder request = new StringBuilder();
-			request.append("GET / HTTP/1.1\r\nHost: ");
+			request.append("GET /");
+			if(route != null) request.append(route);
+			request.append(" HTTP/1.1\r\nHost: ");
 			request.append(host);
 			request.append(System.lineSeparator());
 			request.append("Connection: close\r\n\r\n");
