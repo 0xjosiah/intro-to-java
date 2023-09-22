@@ -68,7 +68,7 @@ public class DataParser {
 				
 			}
 		}
-		System.out.println(routes);
+//		System.out.println(routes);
 	}
 //		return linkSet;
 }

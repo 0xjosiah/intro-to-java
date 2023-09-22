@@ -18,6 +18,10 @@ import java.io.IOException;
  ****************************************************************************/
 
 public class CreateFile {
+	
+	public void filePrinter(Set<String> routes) {
+		
+	}
 	public static void main(String[] args) {
 	    try {
 	      File myObj = new File("filename.txt");

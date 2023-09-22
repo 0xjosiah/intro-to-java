@@ -176,8 +176,13 @@ public class SocketConnection {
 		}
 	}
 	
-	public void getAllPages() {
+	public void writeAllPagesToFiles() {
 		DataParser parser = new DataParser(stringData);
+		parser.getRelativeLinks();
+		Set<String> routes = parser.getRoutes();
+		for(String route : routes) {
+			System.out.println(route);
+		}
 		
 	}
 	
@@ -190,6 +195,7 @@ public class SocketConnection {
 		SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
 		String content = fetcher.getStringData();
 		DataParser parser = new DataParser(content);
+		fetcher.writeAllPagesToFiles();
 //		Set<String> routes = parser.getRelativeLinks();
 //		fetcher.printPageToConsole(content);
 //		
