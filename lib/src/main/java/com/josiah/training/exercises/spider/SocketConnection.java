@@ -100,27 +100,36 @@ public class SocketConnection {
 	public void connect() throws IOException{
 		// init string builder for ingested html
 		StringBuilder html = new StringBuilder();
-		
-		// try socket connection
+
+		// creates ssl socket factory
 		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+		// try socket connection
 		try (
 		        SSLSocket socket = (SSLSocket) factory.createSocket(host, portNumber);
 				BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
 				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			) {
+				// sets up request builder
 				StringBuilder request = new StringBuilder();
 				
+				// build request
 				request.append("GET /");
+				// optional route for request
 				if(route != null) request.append(route);
+				
 				request.append(" HTTP/1.1\r\nHost: ");
 				request.append(host);
 				request.append(System.lineSeparator());
 				request.append("Connection: close\r\n\r\n");
 				request.append(System.lineSeparator());
 				
+				// write data to output stream and flush
 				out.write(request.toString().getBytes());
 				out.flush();
+				
+				// init collector for data
 				String inData = null;
+				// collect data
 				while((inData = in.readLine()) != null ) {
 					html.append(inData);
 				}
@@ -130,6 +139,7 @@ public class SocketConnection {
 		    System.out.println("Unable to connect to server: " + e.getMessage());
 		}
 		
+		// set data to be stored in instance
 		setStringData(html.toString());
 	}
 	
