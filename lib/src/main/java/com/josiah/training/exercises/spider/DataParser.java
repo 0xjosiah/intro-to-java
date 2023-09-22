@@ -26,6 +26,7 @@ import org.jsoup.select.Elements;
 public class DataParser {
 	private String content = null;
 	private Document document = null;
+	private Set<String> routes = new HashSet<>();
 	
 	/**
 	 * constructor
@@ -44,12 +45,16 @@ public class DataParser {
 		return this.content;
 	}
 	
-	public Set<String> getRelativeLinks() {
+	public Set<String> getRoutes() {
+		return this.routes;
+	}
+	
+	public void getRelativeLinks() {
 		Elements links = document.select("a[href*=/]");
 		
 		
 //		Set<Element> linkSet = new HashSet<Element>();
-		Set<String> linkSet = new HashSet<>();
+		
 //		System.out.println(links);
 		
 		for(Element e : links) {
@@ -58,10 +63,12 @@ public class DataParser {
 			href = href.replaceAll("href=\"/|\"", "");
 //			String uri = e.baseUri();
 //			if(!linkSet.add(uri)) linkSet.add(uri);
-			if(!linkSet.add(href)) linkSet.add(href);
+			if(!routes.add(href)) {
+				routes.add(href);
+				
+			}
 		}
-		System.out.println(linkSet);
-		return linkSet;
+		System.out.println(routes);
 	}
-	
+//		return linkSet;
 }

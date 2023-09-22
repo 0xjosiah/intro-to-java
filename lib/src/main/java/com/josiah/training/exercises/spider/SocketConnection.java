@@ -176,6 +176,11 @@ public class SocketConnection {
 		}
 	}
 	
+	public void getAllPages() {
+		DataParser parser = new DataParser(stringData);
+		
+	}
+	
 	/**
 	 * calls constructor and tests with localhost default page
 	 * @param args
@@ -185,7 +190,7 @@ public class SocketConnection {
 		SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
 		String content = fetcher.getStringData();
 		DataParser parser = new DataParser(content);
-		Set<String> routes = parser.getRelativeLinks();
+//		Set<String> routes = parser.getRelativeLinks();
 //		fetcher.printPageToConsole(content);
 //		
 //		Document doc = Jsoup.parse(content);
