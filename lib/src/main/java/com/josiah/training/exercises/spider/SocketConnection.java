@@ -157,25 +157,6 @@ public class SocketConnection {
 		System.out.println(content);
 	}
 	
-	/**
-	 * takes in content, a destination file, and copies content to file
-	 * @param content
-	 * @param outputFile
-	 */
-	public void fileWriter(String content, String rootFolder, String outputFile) {
-		String outputPath = rootFolder + File.separator + outputFile;
-		// init output file
-		File output = new File(outputPath);
-		
-		try {
-			FileWriter writer = new FileWriter(output);
-			writer.write(content);
-			writer.close();
-		} catch(IOException e) {
-			System.out.println(e);
-		}
-	}
-	
 	public void writeAllPagesToFiles() throws IOException {
 		DataParser parser = new DataParser(stringData);
 		parser.getRelativeLinks();
@@ -184,9 +165,9 @@ public class SocketConnection {
 			System.out.println(route);
 			SocketConnection fetcher = new SocketConnection(this.getHost(), this.getPortNumber(), route);
 			String content = fetcher.getStringData();
-			
+			CreateFile creator = new CreateFile();
+			creator.filePrinter(route, content);
 		}
-		
 	}
 	
 	/**
@@ -199,7 +180,7 @@ public class SocketConnection {
 		String content = fetcher.getStringData();
 		DataParser parser = new DataParser(content);
 		fetcher.writeAllPagesToFiles();
-//		Set<String> routes = parser.getRelativeLinks();
+//		parser.getRelativeLinks();
 //		fetcher.printPageToConsole(content);
 //		
 //		Document doc = Jsoup.parse(content);
@@ -217,7 +198,6 @@ public class SocketConnection {
 //			if(!linkSet.add(href)) linkSet.add(href);
 //		}
 //		System.out.println(linkSet);
-		fetcher.fileWriter(content, PATH, "output.txt");
 	}
 
 }

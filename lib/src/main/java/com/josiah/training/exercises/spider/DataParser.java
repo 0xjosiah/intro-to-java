@@ -61,6 +61,7 @@ public class DataParser {
 //			System.out.println(e.attributes());
 			String href = e.attributes().toString();
 			href = href.replaceAll("href=\"/|\"", "");
+			href = href.trim();
 //			String uri = e.baseUri();
 //			if(!linkSet.add(uri)) linkSet.add(uri);
 			if(!routes.add(href)) {
@@ -68,7 +69,7 @@ public class DataParser {
 				
 			}
 		}
-//		System.out.println(routes);
+		System.out.println(routes);
 	}
 //		return linkSet;
 }
