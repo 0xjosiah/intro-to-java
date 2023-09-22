@@ -44,6 +44,38 @@ public class SocketConnection {
 	// static path to be used for testing
 	private static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/spider/";
 	
+	public String getHost() {
+		return host;
+	}
+
+	public void setHost(String host) {
+		this.host = host;
+	}
+
+	public int getPortNumber() {
+		return portNumber;
+	}
+
+	public void setPortNumber(int portNumber) {
+		this.portNumber = portNumber;
+	}
+
+	public String getRoute() {
+		return route;
+	}
+
+	public void setRoute(String route) {
+		this.route = route;
+	}
+	
+	/**
+	 * getter for string data of connected socket
+	 * @return stringData
+	 */
+	public String getStringData() {
+		return this.stringData;
+	}
+	
 	
 	/**
 	 * constructor
@@ -114,13 +146,7 @@ public class SocketConnection {
 		this.stringData = html.toString();
 	}
 	
-	/**
-	 * getter for string data of connected socket
-	 * @return stringData
-	 */
-	public String getStringData() {
-		return this.stringData;
-	}
+	
 	
 	
 	/**
