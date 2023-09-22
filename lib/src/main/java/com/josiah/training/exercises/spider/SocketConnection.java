@@ -159,7 +159,7 @@ public class SocketConnection {
 		SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
 		String content = fetcher.getStringData();
 		DataParser parser = new DataParser(content);
-		parser.getRelativeLinks();
+		Set<String> routes = parser.getRelativeLinks();
 //		fetcher.printPageToConsole(content);
 //		
 //		Document doc = Jsoup.parse(content);

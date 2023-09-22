@@ -46,6 +46,8 @@ public class DataParser {
 	
 	public Set<String> getRelativeLinks() {
 		Elements links = document.select("a[href*=/]");
+		
+		
 //		Set<Element> linkSet = new HashSet<Element>();
 		Set<String> linkSet = new HashSet<>();
 //		System.out.println(links);
@@ -53,6 +55,7 @@ public class DataParser {
 		for(Element e : links) {
 //			System.out.println(e.attributes());
 			String href = e.attributes().toString();
+			href = href.replaceAll("href=\"/|\"", "");
 //			String uri = e.baseUri();
 //			if(!linkSet.add(uri)) linkSet.add(uri);
 			if(!linkSet.add(href)) linkSet.add(href);
