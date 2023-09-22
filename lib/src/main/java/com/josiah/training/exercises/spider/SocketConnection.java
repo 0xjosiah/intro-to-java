@@ -40,6 +40,7 @@ public class SocketConnection {
 	private String host = null;
 	private int portNumber = 0;
 	private String route = null;
+	private String stringData = null;
 	// static path to be used for testing
 	private static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/spider/";
 	private static final String blankLine = "\r\n";
@@ -49,10 +50,12 @@ public class SocketConnection {
 	 * constructor
 	 * @param host
 	 * @param portNumber
+	 * @throws IOException 
 	 */
-	public SocketConnection(String host, int portNumber) {
+	public SocketConnection(String host, int portNumber) throws IOException {
 		this.host = host;
 		this.portNumber = portNumber;
+		connect();
 	}
 	
 	/**
@@ -60,11 +63,13 @@ public class SocketConnection {
 	 * @param host
 	 * @param portNumber
 	 * @param route
+	 * @throws IOException 
 	 */
-	public SocketConnection(String host, int portNumber, String route) {
+	public SocketConnection(String host, int portNumber, String route) throws IOException {
 		this.host = host;
 		this.portNumber = portNumber;
 		this.route = route;
+		connect();
 	}
 	
 	/**
@@ -74,7 +79,7 @@ public class SocketConnection {
 	 * @return
 	 * @throws IOException
 	 */
-	public String getWebPage() throws IOException{
+	public void connect() throws IOException{
 		// init string builder for ingested html
 		StringBuilder html = new StringBuilder();
 		
@@ -105,7 +110,15 @@ public class SocketConnection {
 		    System.out.println("Unable to connect to server: " + e.getMessage());
 		}
 		
-		return html.toString();
+		this.stringData = html.toString();
+	}
+	
+	/**
+	 * getter for string data of connected socket
+	 * @return stringData
+	 */
+	public String getStringData() {
+		return this.stringData;
 	}
 	
 	
@@ -143,7 +156,7 @@ public class SocketConnection {
 	 */
 	public static void main(String[] args) throws IOException {
 		SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
-		String content = fetcher.getWebPage();
+		String content = fetcher.getStringData();
 //		fetcher.printPageToConsole(content);
 		
 		Document doc = Jsoup.parse(content);
