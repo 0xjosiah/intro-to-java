@@ -213,7 +213,7 @@ public class SocketConnection {
 			// creates and prints file for each route
 			CreateFile creator = new CreateFile(fileType);
 			// checks for home or / route
-			if(route == "") {
+			if(route.isEmpty()) {
 				creator.filePrinter("home", content);
 			} else {
 				creator.filePrinter(route, content);				
