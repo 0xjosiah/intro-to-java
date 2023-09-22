@@ -176,12 +176,15 @@ public class SocketConnection {
 		}
 	}
 	
-	public void writeAllPagesToFiles() {
+	public void writeAllPagesToFiles() throws IOException {
 		DataParser parser = new DataParser(stringData);
 		parser.getRelativeLinks();
 		Set<String> routes = parser.getRoutes();
 		for(String route : routes) {
 			System.out.println(route);
+			SocketConnection fetcher = new SocketConnection(this.getHost(), this.getPortNumber(), route);
+			String content = fetcher.getStringData();
+			
 		}
 		
 	}
