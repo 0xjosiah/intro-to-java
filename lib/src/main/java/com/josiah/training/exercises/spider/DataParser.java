@@ -45,17 +45,28 @@ public class DataParser {
 		return this.content;
 	}
 	
+	/**
+	 * getter for routes
+	 * @return set of routes as strings
+	 */
 	public Set<String> getRoutes() {
 		return this.routes;
 	}
 	
+	/**
+	 * populates data for relative links on page
+	 */
 	public void getRelativeLinks() {
 		Elements links = document.select("a[href*=/]");
 		
 		for(Element e : links) {
+			// gets the href of element, converts to string
 			String href = e.attributes().toString();
+			// reduces to just the name of the route
 			href = href.replaceAll("href=\"/|\"", "");
+			// trims white space
 			href = href.trim();
+			// adds route to data store
 			if(!routes.add(href)) routes.add(href);
 		}
 	}
