@@ -52,24 +52,11 @@ public class DataParser {
 	public void getRelativeLinks() {
 		Elements links = document.select("a[href*=/]");
 		
-		
-//		Set<Element> linkSet = new HashSet<Element>();
-		
-//		System.out.println(links);
-		
 		for(Element e : links) {
-//			System.out.println(e.attributes());
 			String href = e.attributes().toString();
 			href = href.replaceAll("href=\"/|\"", "");
 			href = href.trim();
-//			String uri = e.baseUri();
-//			if(!linkSet.add(uri)) linkSet.add(uri);
-			if(!routes.add(href)) {
-				routes.add(href);
-				
-			}
+			if(!routes.add(href)) routes.add(href);
 		}
-		System.out.println(routes);
 	}
-//		return linkSet;
 }
