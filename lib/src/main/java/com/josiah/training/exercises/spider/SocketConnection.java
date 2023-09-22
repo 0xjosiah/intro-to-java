@@ -43,7 +43,6 @@ public class SocketConnection {
 	private String stringData = null;
 	// static path to be used for testing
 	private static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/spider/";
-	private static final String blankLine = "\r\n";
 	
 	
 	/**
