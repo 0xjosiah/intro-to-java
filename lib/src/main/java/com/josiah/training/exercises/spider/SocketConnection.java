@@ -8,10 +8,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.HashSet;
+import java.util.Set;
 
+//import javax.lang.model.util.Elements;
 import javax.net.SocketFactory;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
+
+import org.jsoup.*;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 /****************************************************************************
  * <b>Title:</b> SocketConnector.java
@@ -27,10 +35,11 @@ import javax.net.ssl.SSLSocketFactory;
  *  
  ****************************************************************************/
 
-public class SocketConnector {
+public class SocketConnection {
 	// initialized private variables for constructor
 	private String host = null;
 	private int portNumber = 0;
+	private String route = null;
 	// static path to be used for testing
 	private static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/spider/";
 	private static final String blankLine = "\r\n";
@@ -41,9 +50,21 @@ public class SocketConnector {
 	 * @param host
 	 * @param portNumber
 	 */
-	public SocketConnector(String host, int portNumber) {
+	public SocketConnection(String host, int portNumber) {
 		this.host = host;
 		this.portNumber = portNumber;
+	}
+	
+	/**
+	 * constructor 
+	 * @param host
+	 * @param portNumber
+	 * @param route
+	 */
+	public SocketConnection(String host, int portNumber, String route) {
+		this.host = host;
+		this.portNumber = portNumber;
+		this.route = route;
 	}
 	
 	/**
@@ -68,10 +89,10 @@ public class SocketConnector {
 			StringBuilder request = new StringBuilder();
 			request.append("GET / HTTP/1.1\r\nHost: ");
 			request.append(host);
-			request.append(blankLine);
+			request.append(System.lineSeparator());
 			request.append("Connection: close\r\n\r\n");
-			request.append(blankLine);
-			System.out.println(request.toString());
+			request.append(System.lineSeparator());
+//			System.out.println(request.toString());
 			out.write(request.toString().getBytes());
 			out.flush();
 			String inData = null;
@@ -121,9 +142,25 @@ public class SocketConnector {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		SocketConnector fetcher = new SocketConnector("smt-stage.qa.siliconmtn.com", 443);
+		SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
 		String content = fetcher.getWebPage();
-		fetcher.printPageToConsole(content);
+//		fetcher.printPageToConsole(content);
+		
+		Document doc = Jsoup.parse(content);
+//		System.out.println(doc);
+		Elements links = doc.select("a[href*=/]");
+//		Set<Element> linkSet = new HashSet<Element>();
+		Set<String> linkSet = new HashSet<>();
+//		System.out.println(links);
+		
+		for(Element e : links) {
+//			System.out.println(e.attributes());
+			String href = e.attributes().toString();
+//			String uri = e.baseUri();
+//			if(!linkSet.add(uri)) linkSet.add(uri);
+			if(!linkSet.add(href)) linkSet.add(href);
+		}
+		System.out.println(linkSet);
 		fetcher.fileWriter(content, PATH, "output.txt");
 	}
 
