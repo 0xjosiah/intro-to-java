@@ -25,7 +25,7 @@ import javax.net.ssl.SSLSocketFactory;
  ****************************************************************************/
 
 public class SocketConnection {
-	// initialized private variables for constructor
+	
 	private String host = null;
 	private int portNumber = 0;
 	private String route = null;
@@ -55,10 +55,6 @@ public class SocketConnection {
 		this.route = route;
 	}
 	
-	/**
-	 * getter for string data of connected socket
-	 * @return stringData
-	 */
 	public String getStringData() {
 		return this.stringData;
 	}
@@ -108,26 +104,26 @@ public class SocketConnection {
 		// try socket connection
 		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 		try (
-//				Socket echoSocket = new Socket(this.host, this.portNumber);
 		        SSLSocket socket = (SSLSocket) factory.createSocket(host, portNumber);
 				BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
 				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			) {
-			StringBuilder request = new StringBuilder();
-			request.append("GET /");
-			if(route != null) request.append(route);
-			request.append(" HTTP/1.1\r\nHost: ");
-			request.append(host);
-			request.append(System.lineSeparator());
-			request.append("Connection: close\r\n\r\n");
-			request.append(System.lineSeparator());
-//			System.out.println(request.toString());
-			out.write(request.toString().getBytes());
-			out.flush();
-			String inData = null;
-			while((inData = in.readLine()) != null ) {
-				html.append(inData);
-			}
+				StringBuilder request = new StringBuilder();
+				
+				request.append("GET /");
+				if(route != null) request.append(route);
+				request.append(" HTTP/1.1\r\nHost: ");
+				request.append(host);
+				request.append(System.lineSeparator());
+				request.append("Connection: close\r\n\r\n");
+				request.append(System.lineSeparator());
+				
+				out.write(request.toString().getBytes());
+				out.flush();
+				String inData = null;
+				while((inData = in.readLine()) != null ) {
+					html.append(inData);
+				}
 		} 
 		
 		catch (IOException e) {
