@@ -30,6 +30,8 @@ public class SocketConnection {
 	private int portNumber = 0;
 	private String route = null;
 	private String stringData = null;
+	private String email = null;
+	private String password = null;
 	
 	public String getHost() {
 		return host;
@@ -63,6 +65,22 @@ public class SocketConnection {
 		this.stringData = content;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	
 	/**
 	 * constructor
@@ -87,6 +105,24 @@ public class SocketConnection {
 		this.host = host;
 		this.portNumber = portNumber;
 		this.route = route;
+		connect();
+	}
+	
+	/**
+	 * constructor
+	 * @param host
+	 * @param portNumber
+	 * @param route
+	 * @param email
+	 * @param password
+	 * @throws IOException
+	 */
+	public SocketConnection(String host, int portNumber, String route, String email, String password) throws IOException {
+		this.host = host;
+		this.portNumber = portNumber;
+		this.route = route;
+		this.email = email;
+		this.password = password;
 		connect();
 	}
 	
