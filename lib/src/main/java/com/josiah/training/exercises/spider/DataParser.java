@@ -11,7 +11,7 @@ import org.jsoup.select.Elements;
 /****************************************************************************
  * <b>Title:</b> DataParser.java
  * <b>Project:</b> lib
- * <b>Description:</b> CHANGE ME!!
+ * <b>Description:</b> parse data from socket connections
  * <b>Copyright:</b> Copyright (c) 2023
  * <b>Company:</b> Silicon Mountain Technologies
  * 

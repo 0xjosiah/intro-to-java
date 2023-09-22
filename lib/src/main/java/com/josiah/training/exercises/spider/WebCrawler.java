@@ -5,7 +5,7 @@ import java.io.IOException;
 /****************************************************************************
  * <b>Title:</b> Worker.java
  * <b>Project:</b> lib
- * <b>Description:</b> CHANGE ME!!
+ * <b>Description:</b> main class to crawl web page
  * <b>Copyright:</b> Copyright (c) 2023
  * <b>Company:</b> Silicon Mountain Technologies
  * 
