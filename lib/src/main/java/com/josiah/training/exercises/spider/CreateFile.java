@@ -36,7 +36,9 @@ public class CreateFile {
 	 * @throws IOException
 	 */
 	public void filePrinter(String filename, String content) throws IOException {
+		// creates new file with given name and file type
 		File outFile = new File(filename + "." + this.type);
+		// writes content to file
 		try ( FileWriter writer = new FileWriter(outFile)) {
 			writer.write(content);
 		}
