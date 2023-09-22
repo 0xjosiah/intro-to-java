@@ -17,10 +17,21 @@ import java.io.IOException;
  ****************************************************************************/
 
 public class WebCrawler {
+	
+	/**
+	 * web crawler
+	 * @param args - expects host, port num, if print data to file(bool), file type
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
-		SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
+		String host = args[0];
+		int portNum = Integer.parseInt(args[1]);
+		String isPrintToFile = args[2];
+		String fileType = args[3];
+		
+		SocketConnection fetcher = new SocketConnection(host, portNum);
 		String content = fetcher.getStringData();
 		DataParser parser = new DataParser(content);
-		fetcher.writeAllPagesToFiles("html");
+		if(isPrintToFile == "true") fetcher.writeAllPagesToFiles(fileType);
 	}
 }
