@@ -181,7 +181,16 @@ public class SocketConnection {
 	
 	public void login() throws IOException{
 		// sets up post request to login at designated url
+		StringBuilder request = new StringBuilder();
+		request.append("POST /");
+		// optional route for request
+		if(route != null) request.append(route);
 		
+		request.append(" HTTP/1.1\r\nHost: ");
+		request.append(host);
+		request.append(System.lineSeparator());
+		request.append("Connection: close\r\n\r\n");
+		request.append(System.lineSeparator());
 	}
 	
 	/**
