@@ -25,31 +25,40 @@ import org.jsoup.select.Elements;
 
 public class DataParser {
 	private String content = null;
+	private Document document = null;
 	
+	/**
+	 * constructor
+	 * @param content
+	 */
 	public DataParser(String content) {
 		this.content = content;
+		this.document = Jsoup.parse(content);
 	}
 	
-	public static void main(String[] args) throws IOException {
-	
-	SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
-	String content = fetcher.getStringData();
-//	fetcher.printPageToConsole(content);
-	
-	Document doc = Jsoup.parse(content);
-//	System.out.println(doc);
-	Elements links = doc.select("a[href*=/]");
-//	Set<Element> linkSet = new HashSet<Element>();
-	Set<String> linkSet = new HashSet<>();
-//	System.out.println(links);
-	
-	for(Element e : links) {
-//		System.out.println(e.attributes());
-		String href = e.attributes().toString();
-//		String uri = e.baseUri();
-//		if(!linkSet.add(uri)) linkSet.add(uri);
-		if(!linkSet.add(href)) linkSet.add(href);
+	/**
+	 * getter for content
+	 * @return content
+	 */
+	public String getContent() {
+		return this.content;
 	}
-	System.out.println(linkSet);
+	
+	public Set<String> getRelativeLinks() {
+		Elements links = document.select("a[href*=/]");
+//		Set<Element> linkSet = new HashSet<Element>();
+		Set<String> linkSet = new HashSet<>();
+//		System.out.println(links);
+		
+		for(Element e : links) {
+//			System.out.println(e.attributes());
+			String href = e.attributes().toString();
+//			String uri = e.baseUri();
+//			if(!linkSet.add(uri)) linkSet.add(uri);
+			if(!linkSet.add(href)) linkSet.add(href);
+		}
+		System.out.println(linkSet);
+		return linkSet;
 	}
+	
 }
