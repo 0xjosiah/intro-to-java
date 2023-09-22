@@ -179,6 +179,11 @@ public class SocketConnection {
 		setStringData(html.toString());
 	}
 	
+	public void login() throws IOException{
+		// sets up post request to login at designated url
+		
+	}
+	
 	/**
 	 * writes all pages in link tree from connection to their own html file
 	 * @throws IOException

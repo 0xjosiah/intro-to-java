@@ -29,9 +29,18 @@ public class WebCrawler {
 		int portNum = Integer.parseInt(args[1]);
 		String isPrintToFile = args[2];
 		String fileType = args[3];
+		String route = args[4];
+		String email = args[5];
+		String pw = args[6];
+		
+		SocketConnection fetcher = null;
 		
 		// init task
-		SocketConnection fetcher = new SocketConnection(host, portNum);
+		if(email != null & pw != null) {
+			fetcher = new SocketConnection(host, portNum, route, email, pw);
+		} else {
+			fetcher = new SocketConnection(host, portNum);			
+		}
 		String content = fetcher.getStringData();
 		DataParser parser = new DataParser(content);
 		if(isPrintToFile == "true") fetcher.writeAllPagesToFiles(fileType);
