@@ -148,13 +148,19 @@ public class SocketConnection {
 	 * @throws IOException
 	 */
 	public void writeAllPagesToFiles(String fileType) throws IOException {
+		// creates new parser with instance string data
 		DataParser parser = new DataParser(stringData);
+		// gets relative links for parser to use
 		parser.getRelativeLinks();
+		// collects routes from parser
 		Set<String> routes = parser.getRoutes();
+		
 		for(String route : routes) {
-			System.out.println(route);
+			// creates new fetcher for each route
 			SocketConnection fetcher = new SocketConnection(this.getHost(), this.getPortNumber(), route);
+			// gets content of route
 			String content = fetcher.getStringData();
+			// creates and prints file for each route
 			CreateFile creator = new CreateFile(fileType);
 			creator.filePrinter(route, content);
 		}
