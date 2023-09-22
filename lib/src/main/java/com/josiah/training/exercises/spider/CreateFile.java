@@ -29,6 +29,12 @@ public class CreateFile {
 		this.type = type;
 	}
 	
+	/**
+	 * creates and fills file with given params
+	 * @param filename
+	 * @param content
+	 * @throws IOException
+	 */
 	public void filePrinter(String filename, String content) throws IOException {
 		File outFile = new File(filename + "." + this.type);
 		FileWriter writer = new FileWriter(outFile);
