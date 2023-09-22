@@ -3,23 +3,12 @@ package com.josiah.training.exercises.spider;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.Socket;
-import java.util.HashSet;
 import java.util.Set;
 
-//import javax.lang.model.util.Elements;
-import javax.net.SocketFactory;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-
-import org.jsoup.*;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 /****************************************************************************
  * <b>Title:</b> SocketConnector.java
@@ -41,8 +30,6 @@ public class SocketConnection {
 	private int portNumber = 0;
 	private String route = null;
 	private String stringData = null;
-	// static path to be used for testing
-	private static final String PATH = "/home/josiah/dev/intro-to-java/lib/src/main/java/com/josiah/training/exercises/spider/";
 	
 	public String getHost() {
 		return host;
