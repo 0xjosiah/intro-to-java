@@ -146,18 +146,11 @@ public class SocketConnection {
 		this.stringData = html.toString();
 	}
 	
-	
-	
-	
 	/**
-	 * prints fetched content
-	 * @param content
+	 * writes all pages in link tree from connection to their own html file
+	 * @throws IOException
 	 */
-	public void printPageToConsole(String content) {
-		System.out.println(content);
-	}
-	
-	public void writeAllPagesToFiles() throws IOException {
+	public void writeAllPagesToFiles(String fileType) throws IOException {
 		DataParser parser = new DataParser(stringData);
 		parser.getRelativeLinks();
 		Set<String> routes = parser.getRoutes();
@@ -165,7 +158,7 @@ public class SocketConnection {
 			System.out.println(route);
 			SocketConnection fetcher = new SocketConnection(this.getHost(), this.getPortNumber(), route);
 			String content = fetcher.getStringData();
-			CreateFile creator = new CreateFile();
+			CreateFile creator = new CreateFile(fileType);
 			creator.filePrinter(route, content);
 		}
 	}
@@ -179,7 +172,7 @@ public class SocketConnection {
 		SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
 		String content = fetcher.getStringData();
 		DataParser parser = new DataParser(content);
-		fetcher.writeAllPagesToFiles();
+		fetcher.writeAllPagesToFiles("html");
 //		parser.getRelativeLinks();
 //		fetcher.printPageToConsole(content);
 //		

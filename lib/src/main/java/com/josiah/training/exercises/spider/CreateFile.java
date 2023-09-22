@@ -19,9 +19,18 @@ import java.io.IOException;
  ****************************************************************************/
 
 public class CreateFile {
+	private String type = null;
+	
+	/**
+	 * constructor
+	 * @param type
+	 */
+	public CreateFile(String type) {
+		this.type = type;
+	}
 	
 	public void filePrinter(String filename, String content) throws IOException {
-		File outFile = new File(filename + ".html");
+		File outFile = new File(filename + "." + this.type);
 		FileWriter writer = new FileWriter(outFile);
 		writer.write(content);
 		writer.close();
