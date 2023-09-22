@@ -203,7 +203,12 @@ public class SocketConnection {
 			String content = fetcher.getStringData();
 			// creates and prints file for each route
 			CreateFile creator = new CreateFile(fileType);
-			creator.filePrinter(route, content);
+			// checks for home or / route
+			if(route == "") {
+				creator.filePrinter("home", content);
+			} else {
+				creator.filePrinter(route, content);				
+			}
 		}
 	}
 }
