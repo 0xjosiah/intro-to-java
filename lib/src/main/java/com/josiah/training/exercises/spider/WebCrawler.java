@@ -1,5 +1,7 @@
 package com.josiah.training.exercises.spider;
 
+import java.io.IOException;
+
 /****************************************************************************
  * <b>Title:</b> Worker.java
  * <b>Project:</b> lib
@@ -14,8 +16,11 @@ package com.josiah.training.exercises.spider;
  *  
  ****************************************************************************/
 
-public class Worker {
-	public static void main(String[] args) {
-		
+public class WebCrawler {
+	public static void main(String[] args) throws IOException {
+		SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
+		String content = fetcher.getStringData();
+		DataParser parser = new DataParser(content);
+		fetcher.writeAllPagesToFiles("html");
 	}
 }

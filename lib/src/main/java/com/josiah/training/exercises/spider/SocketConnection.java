@@ -165,35 +165,4 @@ public class SocketConnection {
 			creator.filePrinter(route, content);
 		}
 	}
-	
-	/**
-	 * calls constructor and tests with localhost default page
-	 * @param args
-	 * @throws IOException
-	 */
-	public static void main(String[] args) throws IOException {
-		SocketConnection fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
-		String content = fetcher.getStringData();
-		DataParser parser = new DataParser(content);
-		fetcher.writeAllPagesToFiles("html");
-//		parser.getRelativeLinks();
-//		fetcher.printPageToConsole(content);
-//		
-//		Document doc = Jsoup.parse(content);
-////		System.out.println(doc);
-//		Elements links = doc.select("a[href*=/]");
-////		Set<Element> linkSet = new HashSet<Element>();
-//		Set<String> linkSet = new HashSet<>();
-////		System.out.println(links);
-//		
-//		for(Element e : links) {
-////			System.out.println(e.attributes());
-//			String href = e.attributes().toString();
-////			String uri = e.baseUri();
-////			if(!linkSet.add(uri)) linkSet.add(uri);
-//			if(!linkSet.add(href)) linkSet.add(href);
-//		}
-//		System.out.println(linkSet);
-	}
-
 }
