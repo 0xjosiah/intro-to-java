@@ -1,6 +1,5 @@
 package com.josiah.training.exercises.spider;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
