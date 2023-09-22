@@ -24,11 +24,13 @@ public class WebCrawler {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
+		// define args
 		String host = args[0];
 		int portNum = Integer.parseInt(args[1]);
 		String isPrintToFile = args[2];
 		String fileType = args[3];
 		
+		// init task
 		SocketConnection fetcher = new SocketConnection(host, portNum);
 		String content = fetcher.getStringData();
 		DataParser parser = new DataParser(content);
