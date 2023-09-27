@@ -33,54 +33,6 @@ public class SocketConnection {
 	private String email = null;
 	private String password = null;
 	
-	public String getHost() {
-		return host;
-	}
-
-	public void setHost(String host) {
-		this.host = host;
-	}
-
-	public int getPortNumber() {
-		return portNumber;
-	}
-
-	public void setPortNumber(int portNumber) {
-		this.portNumber = portNumber;
-	}
-
-	public String getRoute() {
-		return route;
-	}
-
-	public void setRoute(String route) {
-		this.route = route;
-	}
-	
-	public String getStringData() {
-		return this.stringData;
-	}
-	
-	public void setStringData(String content) {
-		this.stringData = content;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
 	
 	/**
 	 * constructor
@@ -219,5 +171,56 @@ public class SocketConnection {
 				creator.filePrinter(route, content);				
 			}
 		}
+	}
+	
+	/**
+	 * Getters and Setters for all instance vars
+	 */
+	public String getHost() {
+		return host;
+	}
+
+	public void setHost(String host) {
+		this.host = host;
+	}
+
+	public int getPortNumber() {
+		return portNumber;
+	}
+
+	public void setPortNumber(int portNumber) {
+		this.portNumber = portNumber;
+	}
+
+	public String getRoute() {
+		return route;
+	}
+
+	public void setRoute(String route) {
+		this.route = route;
+	}
+	
+	public String getStringData() {
+		return this.stringData;
+	}
+	
+	public void setStringData(String content) {
+		this.stringData = content;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
