@@ -25,26 +25,33 @@ public class WebCrawler {
 	 */
 	public static void main(String[] args) throws IOException {
 		// define args
-		String host = args[0];
-		int portNum = Integer.parseInt(args[1]);
-		String isPrintToFile = args[2];
-		String fileType = args[3];
-		String route = args[4];
-		String email = args[5];
-		String pw = args[6];
+//		String host = args[0];
+//		int portNum = Integer.parseInt(args[1]);
+//		String isPrintToFile = args[2];
+//		String fileType = args[3];
+//		String route = args[4];
+//		String email = args[5];
+//		String pw = args[6];
 		
 		SocketConnection fetcher = null;
 		
 		// init task
-		if(email != null & pw != null) {
-			fetcher = new SocketConnection(host, portNum, route, email, pw);
-		} else {
-			fetcher = new SocketConnection(host, portNum);			
-		}
+//		if(email != null & pw != null) {
+//			fetcher = new SocketConnection(host, portNum, route, email, pw);
+//		} else {
+//			fetcher = new SocketConnection(host, portNum);			
+//		}
+		
 		
 		// allows for file printing
-		String content = fetcher.getStringData();
+		// this is unnecessary in main 
+//		String content = fetcher.getStringData();
 		
-		if(isPrintToFile == "true") fetcher.writeAllPagesToFiles(fileType);
+//		if(isPrintToFile == "true") fetcher.writeAllPagesToFiles(fileType);
+		
+		// TODO: remove testing initialization 
+		fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
+		fetcher.writeAllPagesToFiles("hrml");
+		
 	}
 }
