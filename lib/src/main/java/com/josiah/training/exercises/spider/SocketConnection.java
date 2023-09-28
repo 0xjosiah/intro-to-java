@@ -124,7 +124,7 @@ public class SocketConnection {
 		} 
 		
 		catch (IOException e) {
-		    System.out.println("Unable to connect to server: " + e.getMessage());
+		    throw new IOException(e);
 		}
 		
 		// set data to be stored in instance
