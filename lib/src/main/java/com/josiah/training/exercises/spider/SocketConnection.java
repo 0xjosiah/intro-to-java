@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URLEncoder;
 import java.util.Set;
 
 import javax.net.ssl.SSLSocket;
@@ -133,16 +134,40 @@ public class SocketConnection {
 	
 	public void login() throws IOException{
 		// sets up post request to login at designated url
+		StringBuilder requestBody = new StringBuilder();
+		StringBuilder requestHeader = new StringBuilder();
 		StringBuilder request = new StringBuilder();
-		request.append("POST /");
+		
+		requestBody.append("requestType=");
+		requestBody.append(URLEncoder.encode("reqBuild", "UTF-8"));
+		requestBody.append("&pmid=");
+		requestBody.append(URLEncoder.encode("ADMIN_LOGIN", "UTF-8"));
+		requestBody.append("&emailAddress=");
+		requestBody.append(URLEncoder.encode(email, "UTF-8"));
+		requestBody.append("&password=");
+		requestBody.append(URLEncoder.encode(password, "UTF-8"));
+		requestBody.append("&l=");
+		requestBody.append(URLEncoder.encode("", "UTF-8"));
+//				 +  +
+//				 +  +
+//				 +  +
+//				 + ;
+		
+//		String requestHeaders = "POST " + url.getFile() + " HTTP/1.1\r\n" +
+//				"Host: " + url.getHost() + "\r\n" +
+//				"Content-Length: " + postRequestBody.length() + "\r\n" +
+//				"Content-Type: application/x-www-form-urlencoded\r\n" +
+//				"\r\n" + postRequestBody + "\r\n" +
+//				"Connection: close\r\n\r\n";
+		requestHeader.append("POST /");
 		// optional route for request
 		if(route != null) request.append(route);
 		
-		request.append(" HTTP/1.1\r\nHost: ");
-		request.append(host);
-		request.append(System.lineSeparator());
-		request.append("Connection: close\r\n\r\n");
-		request.append(System.lineSeparator());
+		requestHeader.append(" HTTP/1.1\r\nHost: ");
+		requestHeader.append(host);
+		requestHeader.append(System.lineSeparator());
+		requestHeader.append("Connection: close\r\n\r\n");
+		requestHeader.append(System.lineSeparator());
 	}
 	
 	/**
