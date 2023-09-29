@@ -27,13 +27,14 @@ import javax.net.ssl.SSLSocketFactory;
 
 public class SocketConnection {
 	
-	private String host = null;
-	private int portNumber = 0;
-	private String route = null;
-	private String stringData = null;
-	private String email = null;
-	private String password = null;
+	private String host;
+	private int portNumber;
+	private String route;
+	private String stringData;
+	private String email;
+	private String password;
 	private SSLSocket socket;
+	private String cookies;
 	
 	
 	/**
@@ -92,9 +93,15 @@ public class SocketConnection {
 		StringBuilder html = new StringBuilder();
 
 		// creates ssl socket factory
-		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+//		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 		// try socket connection
-		socket = (SSLSocket) factory.createSocket(host, portNumber);
+//		socket = (SSLSocket) factory.createSocket(host, portNumber);
+		
+		 if (socket == null || socket.isClosed()) {
+	            // Create the socket if it hasn't been created yet or if it's closed
+	            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+	            socket = (SSLSocket) factory.createSocket(host, portNumber);
+	        }
 		try (
 				BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
 				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -132,6 +139,17 @@ public class SocketConnection {
 		// set data to be stored in instance
 		setStringData(html.toString());
 	}
+	
+
+    public void closeConnection() {
+        if (socket != null && !socket.isClosed()) {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace(); // Handle the exception appropriately
+            }
+        }
+    }
 	
 	public void login() throws IOException{
 		// sets up post request to login at designated url
@@ -173,6 +191,7 @@ public class SocketConnection {
 	
 	public void login(String username, String password) throws IOException {
 	    // Ensure you have already connected using the connect() method.
+		
 	    
 	    // Construct the login POST request
 	    StringBuilder loginRequest = new StringBuilder();

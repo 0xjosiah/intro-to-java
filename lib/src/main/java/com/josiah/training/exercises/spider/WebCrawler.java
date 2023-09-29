@@ -33,6 +33,8 @@ public class WebCrawler {
 //		String email = args[5];
 //		String pw = args[6];
 		
+		
+		
 		SocketConnection fetcher = null;
 		
 		// init task
@@ -50,8 +52,12 @@ public class WebCrawler {
 //		if(isPrintToFile == "true") fetcher.writeAllPagesToFiles(fileType);
 		
 		// TODO: remove testing initialization 
-		fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
-		fetcher.writeAllPagesToFiles("html");
+		fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443, "admintool");
+//		fetcher.writeAllPagesToFiles("html");
+//		fetcher.connect();
+//		fetcher.login(usr, pw);
+//		fetcher.getStringData();
+//		fetcher.closeConnection();
 		
 	}
 }
