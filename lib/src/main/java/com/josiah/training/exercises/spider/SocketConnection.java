@@ -46,7 +46,7 @@ public class SocketConnection {
 	public SocketConnection(String host, int portNumber) throws IOException {
 		this.host = host;
 		this.portNumber = portNumber;
-		connect();
+//		connect();
 	}
 	
 	/**
@@ -60,7 +60,7 @@ public class SocketConnection {
 		this.host = host;
 		this.portNumber = portNumber;
 		this.route = route;
-		connect();
+//		connect();
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public class SocketConnection {
 		this.route = route;
 		this.email = email;
 		this.password = password;
-		connect();
+//		connect();
 	}
 	
 	/**
