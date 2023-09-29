@@ -6,6 +6,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URLEncoder;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.net.ssl.SSLSocket;
@@ -33,8 +34,8 @@ public class SocketConnection {
 	private String stringData;
 	private String email;
 	private String password;
-	private SSLSocket socket;
-	private String cookies;
+//	private SSLSocket socket;
+	private Set<String> cookieSet = new HashSet<>();
 	
 	
 	/**
@@ -88,48 +89,31 @@ public class SocketConnection {
 	 * @return
 	 * @throws IOException
 	 */
-	public void connect() throws IOException{
+	public void connRequest(String requestType, String postBody) throws IOException{
 		// init string builder for ingested html
 		StringBuilder html = new StringBuilder();
+		// Create the socket factory
+		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 
-		// creates ssl socket factory
-//		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-		// try socket connection
-//		socket = (SSLSocket) factory.createSocket(host, portNumber);
-		
-		 if (socket == null || socket.isClosed()) {
-	            // Create the socket if it hasn't been created yet or if it's closed
-	            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-	            socket = (SSLSocket) factory.createSocket(host, portNumber);
-	        }
-		try (
-				BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
-				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			) {
-				// sets up request builder
-				StringBuilder request = new StringBuilder();
-				
-				// build request
-				request.append("GET /");
-				// optional route for request
-				if(route != null) request.append(route);
-				
-				request.append(" HTTP/1.1\r\nHost: ");
-				request.append(host);
-				request.append(System.lineSeparator());
-				request.append("Connection: close\r\n\r\n");
-				request.append(System.lineSeparator());
-				
-				// write data to output stream and flush
-				out.write(request.toString().getBytes());
-				out.flush();
-				
-				// init collector for data
-				String inData = null;
-				// collect data
-				while((inData = in.readLine()) != null ) {
-					html.append(inData);
-				}
+		try (SSLSocket socket = (SSLSocket) factory.createSocket(this.host, this.portNumber)) {
+			BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
+			// sets up request builder
+			String request = requestBuilder(requestType, postBody);
+
+			// write data to output stream and flush
+			out.write(request.getBytes());
+			out.flush();
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			// init collector for data
+			String inData;
+			// collect data
+			while((inData = in.readLine()) != null ) {
+				html.append(inData);
+				html.append(System.lineSeparator());
+
+				if(inData.contains("Cookie")) cookies.add(inData + System.lineSeparator());
+			}
 		} 
 		
 		catch (IOException e) {
@@ -137,7 +121,48 @@ public class SocketConnection {
 		}
 		
 		// set data to be stored in instance
-		setStringData(html.toString());
+		if(requestType.equals("GET")) setStringData(html.toString());
+	}
+
+	public String buildCookies() {
+		StringBuilder cookies = new StringBuilder();
+		for (String cookie : cookieSet) {
+			String str = cookie.substring(12, cookie.indexOf(" ", 12));
+			cookies.append(str);
+		}
+		return cookies.toString();
+	}
+
+	public String requestBuilder(String reqType, String postBody) {
+		StringBuilder req = new StringBuilder();
+		// ensure reqType formatting
+		reqType = reqType.toUpperCase();
+
+		// build request
+		req.append(reqType).append(" /");
+		// optional route for request
+		if(route != null) request.append(route);
+
+		// set host info
+		req.append(" HTTP/1.1\r\nHost: ");
+		req.append(host).append(System.lineSeparator());
+		// if cookies, set cookie info
+		if(!cookieSet.isEmpty()) {
+			req.append("Cookie: ").append(buildCookies()).append(System.lineSeparator());
+		}
+		// if post body present, set body info
+		if(!postBody.isEmpty()) {
+			req.append("Content-Length: ").append(postBody.length()).append(System.lineSeparator());
+			req.append("Content-Type: application/x-www-form-urlencoded")
+					.append(System.lineSeparator()).append(System.lineSeparator());
+			req.append(postBody).append(System.lineSeparator());
+		}
+		// add close request
+		req.append("Connection: close");
+		req.append(System.lineSeparator()).append(System.lineSeparator());
+
+		// returns string
+		return req.toString();
 	}
 	
 

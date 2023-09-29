@@ -33,6 +33,7 @@ public class WebCrawler {
 //		String email = args[5];
 //		String pw = args[6];
 		
+
 		String usr = AppConfig.getUsername();
 		String pw = AppConfig.getPassword();
 		
@@ -62,7 +63,7 @@ public class WebCrawler {
 
         try {
             // Step 1: Connect to the server
-        	fetcher.connect();
+//        	fetcher.connRequest();
 
             // Step 2: Log in
             String username = "your_username";
