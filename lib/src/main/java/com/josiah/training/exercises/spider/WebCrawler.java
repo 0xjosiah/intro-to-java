@@ -51,7 +51,7 @@ public class WebCrawler {
 		
 		// TODO: remove testing initialization 
 		fetcher = new SocketConnection("smt-stage.qa.siliconmtn.com", 443);
-		fetcher.writeAllPagesToFiles("hrml");
+		fetcher.writeAllPagesToFiles("html");
 		
 	}
 }

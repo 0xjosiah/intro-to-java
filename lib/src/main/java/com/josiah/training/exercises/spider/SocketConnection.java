@@ -33,6 +33,7 @@ public class SocketConnection {
 	private String stringData = null;
 	private String email = null;
 	private String password = null;
+	private SSLSocket socket;
 	
 	
 	/**
@@ -93,8 +94,8 @@ public class SocketConnection {
 		// creates ssl socket factory
 		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 		// try socket connection
+		socket = (SSLSocket) factory.createSocket(host, portNumber);
 		try (
-		        SSLSocket socket = (SSLSocket) factory.createSocket(host, portNumber);
 				BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
 				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			) {
@@ -167,8 +168,36 @@ public class SocketConnection {
 		requestHeader.append(host);
 		requestHeader.append(System.lineSeparator());
 		requestHeader.append("Connection: close\r\n\r\n");
-		requestHeader.append(System.lineSeparator());
+		requestHeader.append(System.lineSeparator()); 
 	}
+	
+	public void login(String username, String password) throws IOException {
+	    // Ensure you have already connected using the connect() method.
+	    
+	    // Construct the login POST request
+	    StringBuilder loginRequest = new StringBuilder();
+	    loginRequest.append("POST /login HTTP/1.1\r\n");
+	    loginRequest.append("Host: ").append(host).append("\r\n");
+	    loginRequest.append("Content-Type: application/x-www-form-urlencoded\r\n");
+	    loginRequest.append("Content-Length: ").append(username.length() + password.length() + 11).append("\r\n");
+	    loginRequest.append("Connection: close\r\n\r\n");
+	    loginRequest.append("username=").append(URLEncoder.encode(username, "UTF-8"));
+	    loginRequest.append("&password=").append(URLEncoder.encode(password, "UTF-8"));
+
+	    // Get the output stream and send the login request
+	    try (BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()))) {
+	        out.write(loginRequest.toString().getBytes());
+	        out.flush();
+	    }
+
+	    // You may want to read and process the response to verify successful login or handle any errors.
+	    // You can do this by reading from the input stream in the same way as in your connect() method.
+	    // It's important to parse and handle the server's response accordingly.
+	    // For example, you might check for a successful login message or an error message in the HTML response.
+
+	    // After successfully logging in, you can continue using the existing connection to interact with the website.
+	}
+
 	
 	/**
 	 * writes all pages in link tree from connection to their own html file
