@@ -59,6 +59,27 @@ public class WebCrawler {
 //		fetcher.login(usr, pw);
 //		fetcher.getStringData();
 //		fetcher.closeConnection();
-		
-	}
+
+        try {
+            // Step 1: Connect to the server
+        	fetcher.connect();
+
+            // Step 2: Log in
+            String username = "your_username";
+            String password = "your_password";
+            fetcher.login(usr, pw);
+
+            // Step 3: Handle the response to determine if the login was successful
+            // You would need to parse the response HTML to look for success or error messages.
+            // You may also need to handle cookies and session management if applicable.
+
+            // Step 4: Continue with other actions on the same connection if needed
+            // You can call other methods in YourClass to interact with the website.
+
+            // Don't forget to close the connection when you are done with it
+            fetcher.closeConnection();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle exceptions appropriately
+        }
+    }
 }
