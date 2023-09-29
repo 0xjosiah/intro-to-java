@@ -33,7 +33,8 @@ public class WebCrawler {
 //		String email = args[5];
 //		String pw = args[6];
 		
-		
+		String usr = System.getenv("SPIDER_USER");
+		String pw = System.getenv("SPIDER_PW");
 		
 		SocketConnection fetcher = null;
 		
