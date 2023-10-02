@@ -34,7 +34,6 @@ public class SocketConnection {
 	private String stringData;
 	private String email;
 	private String password;
-//	private SSLSocket socket;
 	private Set<String> cookieSet = new HashSet<>();
 	
 	
@@ -47,7 +46,6 @@ public class SocketConnection {
 	public SocketConnection(String host, int portNumber) throws IOException {
 		this.host = host;
 		this.portNumber = portNumber;
-//		connect();
 	}
 	
 	/**
@@ -61,7 +59,6 @@ public class SocketConnection {
 		this.host = host;
 		this.portNumber = portNumber;
 		this.route = route;
-//		connect();
 	}
 	
 	/**
@@ -79,7 +76,6 @@ public class SocketConnection {
 		this.route = route;
 		this.email = email;
 		this.password = password;
-//		connect();
 	}
 
 	/**
@@ -146,11 +142,11 @@ public class SocketConnection {
 		req.append(" HTTP/1.1\r\nHost: ");
 		req.append(host).append(System.lineSeparator());
 		// if cookies, set cookie info
-		if(!cookieSet.isEmpty()) {
+		if(cookieSet != null || !cookieSet.isEmpty()) {
 			req.append("Cookie: ").append(buildCookies()).append(System.lineSeparator());
 		}
 		// if post body present, set body info
-		if(!postBody.isEmpty()) {
+		if(postBody != null) {
 			req.append("Content-Length: ").append(postBody.length()).append(System.lineSeparator());
 			req.append("Content-Type: application/x-www-form-urlencoded")
 					.append(System.lineSeparator()).append(System.lineSeparator());
@@ -163,74 +159,7 @@ public class SocketConnection {
 		// returns string
 		return req.toString();
 	}
-	
 
-
-	// TODO below mehtods likely to be deleted
-	
-	public void login() throws IOException{
-		// sets up post request to login at designated url
-		StringBuilder requestBody = new StringBuilder();
-		StringBuilder requestHeader = new StringBuilder();
-		StringBuilder request = new StringBuilder();
-		
-		requestBody.append("requestType=");
-		requestBody.append(URLEncoder.encode("reqBuild", "UTF-8"));
-		requestBody.append("&pmid=");
-		requestBody.append(URLEncoder.encode("ADMIN_LOGIN", "UTF-8"));
-		requestBody.append("&emailAddress=");
-		requestBody.append(URLEncoder.encode(email, "UTF-8"));
-		requestBody.append("&password=");
-		requestBody.append(URLEncoder.encode(password, "UTF-8"));
-		requestBody.append("&l=");
-		requestBody.append(URLEncoder.encode("", "UTF-8"));
-//				 +  +
-//				 +  +
-//				 +  +
-//				 + ;
-		
-//		String requestHeaders = "POST " + url.getFile() + " HTTP/1.1\r\n" +
-//				"Host: " + url.getHost() + "\r\n" +
-//				"Content-Length: " + postRequestBody.length() + "\r\n" +
-//				"Content-Type: application/x-www-form-urlencoded\r\n" +
-//				"\r\n" + postRequestBody + "\r\n" +
-//				"Connection: close\r\n\r\n";
-		requestHeader.append("POST /");
-		// optional route for request
-		if(route != null) request.append(route);
-		
-		requestHeader.append(" HTTP/1.1\r\nHost: ");
-		requestHeader.append(host);
-		requestHeader.append(System.lineSeparator());
-		requestHeader.append("Connection: close\r\n\r\n");
-		requestHeader.append(System.lineSeparator()); 
-	}
-	
-	public void login(String username, String password) throws IOException {
-	    // Ensure you have already connected using the connect() method.
-		
-	    
-	    // Construct the login POST request
-	    StringBuilder loginRequest = new StringBuilder();
-	    loginRequest.append("POST /login HTTP/1.1\r\n");
-	    loginRequest.append("Host: ").append(host).append("\r\n");
-	    loginRequest.append("Content-Type: application/x-www-form-urlencoded\r\n");
-	    loginRequest.append("Content-Length: ").append(username.length() + password.length() + 11).append("\r\n");
-	    loginRequest.append("Connection: close\r\n\r\n");
-	    loginRequest.append("username=").append(URLEncoder.encode(username, "UTF-8"));
-	    loginRequest.append("&password=").append(URLEncoder.encode(password, "UTF-8"));
-
-	    // You may want to read and process the response to verify successful login or handle any errors.
-	    // You can do this by reading from the input stream in the same way as in your connect() method.
-	    // It's important to parse and handle the server's response accordingly.
-	    // For example, you might check for a successful login message or an error message in the HTML response.
-
-	    // After successfully logging in, you can continue using the existing connection to interact with the website.
-	}
-
-
-
-	// TODO DONT DELETE BELOW HERE
 	/**
 	 * writes all pages in link tree from connection to their own html file
 	 * @throws IOException
