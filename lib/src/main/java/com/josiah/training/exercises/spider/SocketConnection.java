@@ -61,7 +61,7 @@ public class SocketConnection {
 	 * constructor
 	 * @param host
 	 * @param portNumber
-	 * @param route
+	 * @param route (excludes "/")
 	 * @param email
 	 * @param password
 	 * @throws IOException
@@ -75,7 +75,7 @@ public class SocketConnection {
 	}
 
 	/**
-	 *
+	 * handles a HTTP request
 	 * @param requestType
 	 * @param postBody
 	 * @throws IOException
@@ -115,6 +115,10 @@ public class SocketConnection {
 		if(requestType.equals("get")) setStringData(html.toString());
 	}
 
+	/**
+	 * builds string of cookies from hash set
+	 * @return cookies string
+	 */
 	public String buildCookies() {
 		StringBuilder cookies = new StringBuilder();
 		for (String cookie : cookieSet) {
@@ -124,6 +128,12 @@ public class SocketConnection {
 		return cookies.toString();
 	}
 
+	/**
+	 * builds HTTP request string
+	 * @param reqType
+	 * @param postBody
+	 * @return request string
+	 */
 	public String requestBuilder(String reqType, String postBody) {
 		StringBuilder req = new StringBuilder();
 		// ensure reqType formatting
