@@ -81,12 +81,11 @@ public class SocketConnection {
 		this.password = password;
 //		connect();
 	}
-	
+
 	/**
-	 * reaches out to a server socket, connects, and extracts html from page
-	 * @param host
-	 * @param portNumber
-	 * @return
+	 *
+	 * @param requestType
+	 * @param postBody
 	 * @throws IOException
 	 */
 	public void connRequest(String requestType, String postBody) throws IOException{
@@ -112,7 +111,7 @@ public class SocketConnection {
 				html.append(inData);
 				html.append(System.lineSeparator());
 
-				if(inData.contains("Cookie")) cookies.add(inData + System.lineSeparator());
+				if(inData.contains("Cookie")) cookieSet.add(inData + System.lineSeparator());
 			}
 		} 
 		
@@ -141,7 +140,7 @@ public class SocketConnection {
 		// build request
 		req.append(reqType).append(" /");
 		// optional route for request
-		if(route != null) request.append(route);
+		if(route != null) req.append(route);
 
 		// set host info
 		req.append(" HTTP/1.1\r\nHost: ");
@@ -168,15 +167,6 @@ public class SocketConnection {
 
 
 	// TODO below mehtods likely to be deleted
-    public void closeConnection() {
-        if (socket != null && !socket.isClosed()) {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace(); // Handle the exception appropriately
-            }
-        }
-    }
 	
 	public void login() throws IOException{
 		// sets up post request to login at designated url
@@ -229,12 +219,6 @@ public class SocketConnection {
 	    loginRequest.append("Connection: close\r\n\r\n");
 	    loginRequest.append("username=").append(URLEncoder.encode(username, "UTF-8"));
 	    loginRequest.append("&password=").append(URLEncoder.encode(password, "UTF-8"));
-
-	    // Get the output stream and send the login request
-	    try (BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()))) {
-	        out.write(loginRequest.toString().getBytes());
-	        out.flush();
-	    }
 
 	    // You may want to read and process the response to verify successful login or handle any errors.
 	    // You can do this by reading from the input stream in the same way as in your connect() method.
