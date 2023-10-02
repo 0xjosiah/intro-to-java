@@ -23,7 +23,7 @@ public class CreateFile {
 	
 	/**
 	 * constructor
-	 * @param type
+	 * @param type - provides the type of file to be created
 	 */
 	public CreateFile(String type) {
 		this.type = type;
