@@ -121,7 +121,9 @@ public class SocketConnection {
 	 */
 	public String buildCookies() {
 		StringBuilder cookies = new StringBuilder();
+		// loop thru cookies set
 		for (String cookie : cookieSet) {
+			// extract only needed info
 			String str = cookie.substring(12, cookie.indexOf(" ", 12));
 			cookies.append(str);
 		}
