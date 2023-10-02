@@ -1,10 +1,6 @@
 package com.josiah.training.exercises.spider;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Set;
@@ -116,7 +112,7 @@ public class SocketConnection {
 		}
 		
 		// set data to be stored in instance
-		if(requestType.equals("GET")) setStringData(html.toString());
+		if(requestType.equals("get")) setStringData(html.toString());
 	}
 
 	public String buildCookies() {
@@ -227,15 +223,15 @@ public class SocketConnection {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String email) throws UnsupportedEncodingException {
+		this.email = URLEncoder.encode(email, "UTF-8");
 	}
 
 	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String password) throws UnsupportedEncodingException {
+		this.password = URLEncoder.encode(password, "UTF-8");
 	}
 }
