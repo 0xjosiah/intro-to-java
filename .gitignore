@@ -1,5 +1,6 @@
 # Ignore Gradle project-specific cache directory
 .gradle
+.idea
 
 # Ignore Gradle build output directory
 build
@@ -14,5 +15,5 @@ build
 
 
 #Ignore site details for spider
-/lib/src/main/java/com/josiah/training/exercises/spider/config.properties
+/lib/src/main/resources/spiderConfig.properties
 /bin/

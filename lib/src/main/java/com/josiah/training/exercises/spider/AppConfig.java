@@ -1,6 +1,5 @@
 package com.josiah.training.exercises.spider;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -20,7 +19,7 @@ import java.util.Properties;
  ****************************************************************************/
 
 public class AppConfig {
-    private static final String CONFIG_FILE = "config.properties";
+    private static final String CONFIG_FILE = "spiderConfig.properties";
     private static Properties properties = new Properties();
     private InputStream in;
 
