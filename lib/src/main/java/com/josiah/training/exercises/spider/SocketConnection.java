@@ -166,6 +166,8 @@ public class SocketConnection {
 	}
 	
 
+
+	// TODO below mehtods likely to be deleted
     public void closeConnection() {
         if (socket != null && !socket.isClosed()) {
             try {
@@ -242,7 +244,9 @@ public class SocketConnection {
 	    // After successfully logging in, you can continue using the existing connection to interact with the website.
 	}
 
-	
+
+
+	// TODO DONT DELETE BELOW HERE
 	/**
 	 * writes all pages in link tree from connection to their own html file
 	 * @throws IOException
