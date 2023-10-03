@@ -90,6 +90,7 @@ public class SocketConnection {
 			BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
 			// sets up request builder
 			String request = requestBuilder(requestType, postBody);
+//			System.out.println(request);
 
 			// write data to output stream and flush
 			out.write(request.getBytes());
@@ -127,6 +128,7 @@ public class SocketConnection {
 			String str = cookie.substring(12, cookie.indexOf(" ", 12));
 			cookies.append(str);
 		}
+//		System.out.println(cookies);
 		return cookies.toString();
 	}
 

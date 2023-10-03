@@ -46,13 +46,12 @@ public class ProcessWorker {
 //			fetcher = new SocketConnection(host, portNum);
 //		}
 
-
 //		if(isPrintToFile == "true") fetcher.writeAllPagesToFiles(fileType);
 
-        // TODO: remove testing initialization
         fetcher = new SocketConnection(host, portNumber, route, usr, pw);
         fetcher.connRequest("post", reqInfo);
         fetcher.connRequest("get", null);
+//        System.out.println(fetcher.getStringData());
         CreateFile printer = new CreateFile("html");
         printer.filePrinter("cacheStats", fetcher.getStringData());
     }
