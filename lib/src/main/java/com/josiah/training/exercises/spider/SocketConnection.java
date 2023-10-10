@@ -85,6 +85,8 @@ public class SocketConnection {
 		StringBuilder html = new StringBuilder();
 		// Create the socket factory
 		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+		// ensure requestType formatting
+		requestType = requestType.toUpperCase();
 
 		try (SSLSocket socket = (SSLSocket) factory.createSocket(this.host, this.portNumber)) {
 			BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
@@ -113,7 +115,7 @@ public class SocketConnection {
 		}
 		
 		// set data to be stored in instance
-		if(requestType.equals("get")) setStringData(html.toString());
+		if(requestType.equals("GET")) setStringData(html.toString());
 	}
 
 	/**
@@ -140,8 +142,6 @@ public class SocketConnection {
 	 */
 	public String requestBuilder(String reqType, String postBody) {
 		StringBuilder req = new StringBuilder();
-		// ensure reqType formatting
-		reqType = reqType.toUpperCase();
 
 		// build request
 		req.append(reqType).append(" /");
