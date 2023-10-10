@@ -29,6 +29,7 @@ public class ProcessWorker {
 		String usr = AppConfig.getUsername();
 		String pw = AppConfig.getPassword();
 		String route = AppConfig.getOptionalRoute();
+        String dest_route = AppConfig.getDestRoute();
 		int portNumber = Integer.parseInt(AppConfig.getPort());
 		String host = AppConfig.getUrl();
         // encodes email and pw

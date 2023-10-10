@@ -54,5 +54,8 @@ public class AppConfig {
     public static String getOptionalRoute() {
         return properties.getProperty("optional_route");
     }
+    public static String getDestRoute() {
+        return properties.getProperty("dest_route");
+    }
 }
 
