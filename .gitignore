@@ -12,6 +12,7 @@ build
 /lib/.settings
 /lib/.classpath
 .settings
+.classpath
 
 
 #Ignore site details for spider
