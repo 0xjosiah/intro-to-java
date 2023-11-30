@@ -1,7 +1,7 @@
 package com.josiah.training.exercises.spider;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /****************************************************************************
@@ -19,18 +19,21 @@ import java.util.Properties;
  ****************************************************************************/
 
 public class AppConfig {
-    private static final String CONFIG_FILE_PATH = "config.properties";
+    private static final String CONFIG_FILE = "spiderConfig.properties";
     private static Properties properties = new Properties();
+    private InputStream in;
 
-    static {
+    public void loadConfig() throws IOException {
         try {
-            FileInputStream fileInputStream = new FileInputStream(CONFIG_FILE_PATH);
-            properties.load(fileInputStream);
-            fileInputStream.close();
+            in = getClass().getClassLoader().getResourceAsStream(CONFIG_FILE);
+            if(in != null) properties.load(in);
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            in.close();
         }
     }
+
 
     public static String getUrl() {
         return properties.getProperty("url");
@@ -50,6 +53,9 @@ public class AppConfig {
 
     public static String getOptionalRoute() {
         return properties.getProperty("optional_route");
+    }
+    public static String getDestRoute() {
+        return properties.getProperty("dest_route");
     }
 }
 

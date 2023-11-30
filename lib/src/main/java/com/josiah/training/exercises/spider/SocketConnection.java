@@ -1,11 +1,8 @@
 package com.josiah.training.exercises.spider;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URLEncoder;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.net.ssl.SSLSocket;
@@ -33,8 +30,7 @@ public class SocketConnection {
 	private String stringData;
 	private String email;
 	private String password;
-	private SSLSocket socket;
-	private String cookies;
+	private Set<String> cookieSet = new HashSet<>();
 	
 	
 	/**
@@ -46,7 +42,6 @@ public class SocketConnection {
 	public SocketConnection(String host, int portNumber) throws IOException {
 		this.host = host;
 		this.portNumber = portNumber;
-//		connect();
 	}
 	
 	/**
@@ -60,14 +55,13 @@ public class SocketConnection {
 		this.host = host;
 		this.portNumber = portNumber;
 		this.route = route;
-//		connect();
 	}
 	
 	/**
 	 * constructor
 	 * @param host
 	 * @param portNumber
-	 * @param route
+	 * @param route (excludes "/")
 	 * @param email
 	 * @param password
 	 * @throws IOException
@@ -78,58 +72,42 @@ public class SocketConnection {
 		this.route = route;
 		this.email = email;
 		this.password = password;
-//		connect();
 	}
-	
+
 	/**
-	 * reaches out to a server socket, connects, and extracts html from page
-	 * @param host
-	 * @param portNumber
-	 * @return
+	 * handles a HTTP request
+	 * @param requestType
+	 * @param postBody
 	 * @throws IOException
 	 */
-	public void connect() throws IOException{
+	public void connRequest(String requestType, String postBody) throws IOException{
 		// init string builder for ingested html
 		StringBuilder html = new StringBuilder();
+		// Create the socket factory
+		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+		// ensure requestType formatting
+		requestType = requestType.toUpperCase();
 
-		// creates ssl socket factory
-//		SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-		// try socket connection
-//		socket = (SSLSocket) factory.createSocket(host, portNumber);
-		
-		 if (socket == null || socket.isClosed()) {
-	            // Create the socket if it hasn't been created yet or if it's closed
-	            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-	            socket = (SSLSocket) factory.createSocket(host, portNumber);
-	        }
-		try (
-				BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
-				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			) {
-				// sets up request builder
-				StringBuilder request = new StringBuilder();
-				
-				// build request
-				request.append("GET /");
-				// optional route for request
-				if(route != null) request.append(route);
-				
-				request.append(" HTTP/1.1\r\nHost: ");
-				request.append(host);
-				request.append(System.lineSeparator());
-				request.append("Connection: close\r\n\r\n");
-				request.append(System.lineSeparator());
-				
-				// write data to output stream and flush
-				out.write(request.toString().getBytes());
-				out.flush();
-				
-				// init collector for data
-				String inData = null;
-				// collect data
-				while((inData = in.readLine()) != null ) {
-					html.append(inData);
-				}
+		try (SSLSocket socket = (SSLSocket) factory.createSocket(this.host, this.portNumber)) {
+			BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
+			// sets up request builder
+			String request = requestBuilder(requestType, postBody);
+//			System.out.println(request);
+
+			// write data to output stream and flush
+			out.write(request.getBytes());
+			out.flush();
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			// init collector for data
+			String inData;
+			// collect data
+			while((inData = in.readLine()) != null ) {
+				html.append(inData);
+				html.append(System.lineSeparator());
+
+				if(inData.contains("Cookie")) cookieSet.add(inData + System.lineSeparator());
+			}
 		} 
 		
 		catch (IOException e) {
@@ -137,87 +115,61 @@ public class SocketConnection {
 		}
 		
 		// set data to be stored in instance
-		setStringData(html.toString());
+		if(requestType.equals("GET")) setStringData(html.toString());
 	}
-	
 
-    public void closeConnection() {
-        if (socket != null && !socket.isClosed()) {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace(); // Handle the exception appropriately
-            }
-        }
-    }
-	
-	public void login() throws IOException{
-		// sets up post request to login at designated url
-		StringBuilder requestBody = new StringBuilder();
-		StringBuilder requestHeader = new StringBuilder();
-		StringBuilder request = new StringBuilder();
-		
-		requestBody.append("requestType=");
-		requestBody.append(URLEncoder.encode("reqBuild", "UTF-8"));
-		requestBody.append("&pmid=");
-		requestBody.append(URLEncoder.encode("ADMIN_LOGIN", "UTF-8"));
-		requestBody.append("&emailAddress=");
-		requestBody.append(URLEncoder.encode(email, "UTF-8"));
-		requestBody.append("&password=");
-		requestBody.append(URLEncoder.encode(password, "UTF-8"));
-		requestBody.append("&l=");
-		requestBody.append(URLEncoder.encode("", "UTF-8"));
-//				 +  +
-//				 +  +
-//				 +  +
-//				 + ;
-		
-//		String requestHeaders = "POST " + url.getFile() + " HTTP/1.1\r\n" +
-//				"Host: " + url.getHost() + "\r\n" +
-//				"Content-Length: " + postRequestBody.length() + "\r\n" +
-//				"Content-Type: application/x-www-form-urlencoded\r\n" +
-//				"\r\n" + postRequestBody + "\r\n" +
-//				"Connection: close\r\n\r\n";
-		requestHeader.append("POST /");
+	/**
+	 * builds string of cookies from hash set
+	 * @return cookies string
+	 */
+	public String buildCookies() {
+		StringBuilder cookies = new StringBuilder();
+		// loop thru cookies set
+		for (String cookie : cookieSet) {
+			// extract only needed info
+			String str = cookie.substring(12, cookie.indexOf(" ", 12));
+			cookies.append(str);
+		}
+//		System.out.println(cookies);
+		return cookies.toString();
+	}
+
+	/**
+	 * builds HTTP request string
+	 * @param reqType
+	 * @param postBody
+	 * @return request string
+	 */
+	public String requestBuilder(String reqType, String postBody) {
+		StringBuilder req = new StringBuilder();
+
+		// build request
+		req.append(reqType).append(" /");
 		// optional route for request
-		if(route != null) request.append(route);
-		
-		requestHeader.append(" HTTP/1.1\r\nHost: ");
-		requestHeader.append(host);
-		requestHeader.append(System.lineSeparator());
-		requestHeader.append("Connection: close\r\n\r\n");
-		requestHeader.append(System.lineSeparator()); 
-	}
-	
-	public void login(String username, String password) throws IOException {
-	    // Ensure you have already connected using the connect() method.
-		
-	    
-	    // Construct the login POST request
-	    StringBuilder loginRequest = new StringBuilder();
-	    loginRequest.append("POST /login HTTP/1.1\r\n");
-	    loginRequest.append("Host: ").append(host).append("\r\n");
-	    loginRequest.append("Content-Type: application/x-www-form-urlencoded\r\n");
-	    loginRequest.append("Content-Length: ").append(username.length() + password.length() + 11).append("\r\n");
-	    loginRequest.append("Connection: close\r\n\r\n");
-	    loginRequest.append("username=").append(URLEncoder.encode(username, "UTF-8"));
-	    loginRequest.append("&password=").append(URLEncoder.encode(password, "UTF-8"));
+		if(route != null) req.append(route);
 
-	    // Get the output stream and send the login request
-	    try (BufferedOutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()))) {
-	        out.write(loginRequest.toString().getBytes());
-	        out.flush();
-	    }
+		// set host info
+		req.append(" HTTP/1.1\r\nHost: ");
+		req.append(host).append(System.lineSeparator());
+		// if cookies, set cookie info
+		if(cookieSet != null || !cookieSet.isEmpty()) {
+			req.append("Cookie: ").append(buildCookies()).append(System.lineSeparator());
+		}
+		// if post body present, set body info
+		if(postBody != null) {
+			req.append("Content-Length: ").append(postBody.length()).append(System.lineSeparator());
+			req.append("Content-Type: application/x-www-form-urlencoded")
+					.append(System.lineSeparator()).append(System.lineSeparator());
+			req.append(postBody).append(System.lineSeparator());
+		}
+		// add close request
+		req.append("Connection: close");
+		req.append(System.lineSeparator()).append(System.lineSeparator());
 
-	    // You may want to read and process the response to verify successful login or handle any errors.
-	    // You can do this by reading from the input stream in the same way as in your connect() method.
-	    // It's important to parse and handle the server's response accordingly.
-	    // For example, you might check for a successful login message or an error message in the HTML response.
-
-	    // After successfully logging in, you can continue using the existing connection to interact with the website.
+		// returns string
+		return req.toString();
 	}
 
-	
 	/**
 	 * writes all pages in link tree from connection to their own html file
 	 * @throws IOException
@@ -285,15 +237,15 @@ public class SocketConnection {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String email) throws UnsupportedEncodingException {
+		this.email = URLEncoder.encode(email, "UTF-8");
 	}
 
 	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String password) throws UnsupportedEncodingException {
+		this.password = URLEncoder.encode(password, "UTF-8");
 	}
 }
