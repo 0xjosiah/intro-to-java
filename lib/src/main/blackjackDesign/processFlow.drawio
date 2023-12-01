@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-01T19:18:51.568Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="kFUkT8j5tatF50a4tHAb" version="22.1.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-01T19:30:00.456Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="t4-QSr3BrdJhrJ3TWGCF" version="22.1.5" type="github">
   <diagram name="Page-1" id="v8-KR8JvQsyaatklAiML">
     <mxGraphModel dx="1434" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -134,11 +134,11 @@
         <mxCell id="gmbwRz2twySQBHAZEDax-22" value="Continue playing?" style="rhombus;whiteSpace=wrap;html=1;strokeColor=default;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
           <mxGeometry x="850" y="290" width="140" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="gmbwRz2twySQBHAZEDax-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-44" target="gmbwRz2twySQBHAZEDax-28">
+        <mxCell id="gmbwRz2twySQBHAZEDax-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-44" target="gmbwRz2twySQBHAZEDax-28">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="425" y="290" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="390" y="190" />
+              <mxPoint x="420" y="190" />
               <mxPoint x="1260" y="190" />
             </Array>
           </mxGeometry>
@@ -171,7 +171,7 @@
         <mxCell id="gmbwRz2twySQBHAZEDax-40" value="Blackjack game" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontFamily=Helvetica;fontColor=default;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="20" y="590" width="266" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="gmbwRz2twySQBHAZEDax-41" value="Dealing" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontFamily=Helvetica;fontColor=default;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="gmbwRz2twySQBHAZEDax-41" value="Dealing cards" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontFamily=Helvetica;fontColor=default;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="20" y="940" width="266" height="30" as="geometry" />
         </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-42" value="Begin" style="ellipse;whiteSpace=wrap;html=1;strokeColor=default;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
@@ -179,6 +179,14 @@
         </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-44" target="gmbwRz2twySQBHAZEDax-45">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-44" target="gmbwRz2twySQBHAZEDax-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="150" />
+              <mxPoint x="1460" y="150" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-44" value="Choose action" style="whiteSpace=wrap;html=1;strokeWidth=1;" vertex="1" parent="1">
           <mxGeometry x="330" y="310" width="120" height="40" as="geometry" />
@@ -188,6 +196,51 @@
         </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-45" value="Choose game" style="whiteSpace=wrap;html=1;strokeWidth=1;" vertex="1" parent="1">
           <mxGeometry x="500" y="310" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-49" value="Start Game" style="whiteSpace=wrap;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="114" y="684" width="96" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-50" target="gmbwRz2twySQBHAZEDax-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-50" value="increment deal to position" style="whiteSpace=wrap;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="1061.5" width="110" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-51" value="Deal one card to player on left" style="whiteSpace=wrap;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1073" width="180" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-52" value="Check for players" style="whiteSpace=wrap;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="151" y="1073" width="138" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-53" target="gmbwRz2twySQBHAZEDax-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-57" value="yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" connectable="0" parent="gmbwRz2twySQBHAZEDax-56">
+          <mxGeometry x="-0.0494" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-53" target="gmbwRz2twySQBHAZEDax-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-59" value="no" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" connectable="0" parent="gmbwRz2twySQBHAZEDax-58">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-53" value="any remaining players w/o initial card?" style="rhombus;whiteSpace=wrap;html=1;strokeColor=default;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="733.5" y="1040" width="219" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-55" value="is dealer a player?" style="rhombus;whiteSpace=wrap;html=1;strokeColor=default;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="773" y="1200" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.467;entryY=0.941;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-55" target="gmbwRz2twySQBHAZEDax-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gmbwRz2twySQBHAZEDax-61" value="yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" connectable="0" parent="gmbwRz2twySQBHAZEDax-60">
+          <mxGeometry x="-0.2561" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
