@@ -1,0 +1,101 @@
+<mxfile host="app.diagrams.net" modified="2023-12-01T16:16:59.328Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" version="22.1.5" etag="B90NL1OmTgaQKkrmqo8y" type="github">
+  <diagram name="Page-1" id="v8-KR8JvQsyaatklAiML">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Begin" style="ellipse;aspect=fixed;strokeWidth=2;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry y="70" width="54" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Start Game" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="104" y="54" width="96" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Deal initial cards" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="250" y="54" width="136" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Check blackjack" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="436" y="54" width="131" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Player&#39;s turn" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="636" y="85" width="104" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Dealer&#39;s turn" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="790" y="54" width="106" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Check win/loss" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="946" y="85" width="123" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="End Game" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1141" y="85" width="87" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1.0023148148148149;exitY=0.24972211106664877;entryX=0.0013020833333333333;entryY=0.5;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="79" y="71" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1.001953125;exitY=0.5;entryX=0.0013786764705882354;entryY=0.5;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1.0024126838235294;exitY=0.5;entryX=0.002504770992366412;entryY=0.5;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" value="Yes" style="curved=1;startArrow=none;endArrow=block;exitX=0.7140614333147146;exitY=0;entryX=0.3316892112886658;entryY=-0.007352941176470588;" edge="1" parent="1" source="5" target="9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="602" y="10" />
+              <mxPoint x="1105" y="10" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" value="No" style="curved=1;startArrow=none;endArrow=block;exitX=0.9250217215912614;exitY=1;entryX=0.002704326923076923;entryY=0.49264705882352944;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="602" y="102" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.9103895501094439;exitY=-0.007352941176470588;entryX=0.0005896226415094339;entryY=0.5;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="765" y="71" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.9960200471698113;exitY=0.5;entryX=0.1072691519598127;entryY=-0.007352941176470588;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="921" y="71" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" value="Yes" style="curved=1;startArrow=none;endArrow=block;exitX=0.9942835365853658;exitY=0.49264705882352944;entryX=-0.0005387931034482759;entryY=0.49264705882352944;" edge="1" parent="1" source="8" target="9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="No" style="curved=1;startArrow=none;endArrow=block;exitX=0.1072691519598127;exitY=0.9926470588235294;entryX=0.9103895501094439;entryY=0.9926470588235294;" edge="1" parent="1" source="8" target="6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="921" y="133" />
+              <mxPoint x="765" y="133" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.2825310465396671;exitY=0.9926470588235294;entryX=0.8433411126290224;entryY=1.0011574074074074;" edge="1" parent="1" source="9" target="2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1105" y="173" />
+              <mxPoint x="79" y="173" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
