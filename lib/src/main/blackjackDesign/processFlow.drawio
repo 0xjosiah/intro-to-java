@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-04T16:50:58.860Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="yfMsWT6R0tmgzTTYDVOp" version="22.1.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-04T17:01:39.819Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="0gIMqW4zR8t654gXGfu2" version="22.1.5" type="github">
   <diagram name="Page-1" id="v8-KR8JvQsyaatklAiML">
     <mxGraphModel dx="1434" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -197,6 +197,14 @@
         <mxCell id="gmbwRz2twySQBHAZEDax-45" value="Choose game" style="whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="500" y="310" width="120" height="40" as="geometry" />
         </mxCell>
+        <mxCell id="pmaKhDEcmIWRybuFA1dL-20" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-49" target="gmbwRz2twySQBHAZEDax-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pmaKhDEcmIWRybuFA1dL-21" value="no" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="pmaKhDEcmIWRybuFA1dL-20">
+          <mxGeometry x="-0.2611" y="-3" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-49" value="All players have appropriate # of cards?" style="whiteSpace=wrap;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="354" y="1073" width="156" height="34" as="geometry" />
         </mxCell>
@@ -206,19 +214,14 @@
         <mxCell id="gmbwRz2twySQBHAZEDax-50" value="increment deal to position" style="whiteSpace=wrap;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="787" y="1121.5" width="110" height="57" as="geometry" />
         </mxCell>
+        <mxCell id="pmaKhDEcmIWRybuFA1dL-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-51" target="gmbwRz2twySQBHAZEDax-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-51" value="Deal one card to player on left" style="whiteSpace=wrap;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="560" y="1133" width="180" height="34" as="geometry" />
         </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-52" value="Check for players" style="whiteSpace=wrap;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="151" y="1073" width="138" height="34" as="geometry" />
-        </mxCell>
-        <mxCell id="gmbwRz2twySQBHAZEDax-56" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;curved=1;" parent="1" source="gmbwRz2twySQBHAZEDax-53" target="gmbwRz2twySQBHAZEDax-51" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="gmbwRz2twySQBHAZEDax-57" value="yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="gmbwRz2twySQBHAZEDax-56" vertex="1" connectable="0">
-          <mxGeometry x="-0.0494" y="-2" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="gmbwRz2twySQBHAZEDax-53" target="gmbwRz2twySQBHAZEDax-55" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -228,19 +231,43 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="pmaKhDEcmIWRybuFA1dL-26" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-53" target="gmbwRz2twySQBHAZEDax-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pmaKhDEcmIWRybuFA1dL-27" value="yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="pmaKhDEcmIWRybuFA1dL-26">
+          <mxGeometry x="-0.1687" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-53" value="any remaining players w/o card?" style="rhombus;whiteSpace=wrap;html=1;strokeColor=default;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" parent="1" vertex="1">
           <mxGeometry x="953.5" y="1100" width="219" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pmaKhDEcmIWRybuFA1dL-24" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="gmbwRz2twySQBHAZEDax-55" target="gmbwRz2twySQBHAZEDax-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pmaKhDEcmIWRybuFA1dL-25" value="no" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="pmaKhDEcmIWRybuFA1dL-24">
+          <mxGeometry x="-0.1686" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-55" value="is dealer a player?" style="rhombus;whiteSpace=wrap;html=1;strokeColor=default;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" parent="1" vertex="1">
           <mxGeometry x="993" y="1260" width="140" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="gmbwRz2twySQBHAZEDax-60" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.467;entryY=0.941;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=default;curved=1;" parent="1" source="gmbwRz2twySQBHAZEDax-55" target="gmbwRz2twySQBHAZEDax-51" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="gmbwRz2twySQBHAZEDax-60" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;curved=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="gmbwRz2twySQBHAZEDax-55" target="pmaKhDEcmIWRybuFA1dL-22" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="1220" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="gmbwRz2twySQBHAZEDax-61" value="yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="gmbwRz2twySQBHAZEDax-60" vertex="1" connectable="0">
           <mxGeometry x="-0.2561" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="pmaKhDEcmIWRybuFA1dL-23" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="pmaKhDEcmIWRybuFA1dL-22" target="gmbwRz2twySQBHAZEDax-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pmaKhDEcmIWRybuFA1dL-22" value="deal card to dealer" style="whiteSpace=wrap;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="1250" width="180" height="34" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
