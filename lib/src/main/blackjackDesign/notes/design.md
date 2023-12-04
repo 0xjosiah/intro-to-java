@@ -48,3 +48,9 @@ verbs
 		
 process flow (multiple levels, at least two, no overlap between processes) for verbs and relationship map (is a and has a) for nouns
 class diagrams for 'is a's relationships 
+
+
+
+Review class notes
+- careful on inferring relationship that doesn't exist
+- 
